@@ -11,6 +11,7 @@ public class SpaceShip : MonoBehaviour
     [Header("Movement Speed")]
     public float movementSpeed = 1f;
     private float horizontal;
+    private float vertical;
     
     void Start()
     {
@@ -27,12 +28,13 @@ public class SpaceShip : MonoBehaviour
 
     void Inputs()
     {
+        vertical = Input.GetAxisRaw("Vertical");
         horizontal = Input.GetAxisRaw("Horizontal");
     }
 
     void MoveCharachter()
    {
-        direction = new Vector3(horizontal, 0f).normalized;
+        direction = new Vector3(horizontal, 0f,vertical).normalized;
         controller.Move(direction * movementSpeed * Time.fixedDeltaTime);
    }
 }

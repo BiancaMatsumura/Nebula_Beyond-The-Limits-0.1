@@ -10,7 +10,6 @@ public class Damage : MonoBehaviour
     [SerializeField] private Healthbar _healthbar;
     private float _currentHealth;
 
-    public Material mat;
 
     private void Awake() {
         _currentHealth = _initialHealth;
