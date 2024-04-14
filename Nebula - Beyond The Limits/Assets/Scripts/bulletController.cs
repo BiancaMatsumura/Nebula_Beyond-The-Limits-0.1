@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class bulletController : MonoBehaviour
 {
-    public float speed = 5f; // Velocidade do inimigo
+    public float speed = 10f;
 
     void Update()
     {
-        // Movimentação básica do inimigo
+
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
     }
 }
