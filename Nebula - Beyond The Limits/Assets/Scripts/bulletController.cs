@@ -18,7 +18,7 @@ public class bulletController : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             
-            collision.gameObject.GetComponent<Damage>().ApplyDamage(dano);
+            collision.gameObject.GetComponent<vidaJogador>().TakeDamage(dano);
 
             
             Destroy(gameObject);

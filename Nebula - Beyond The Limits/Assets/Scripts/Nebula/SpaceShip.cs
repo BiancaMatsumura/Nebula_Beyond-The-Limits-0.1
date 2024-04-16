@@ -63,16 +63,20 @@ public class SpaceShip : MonoBehaviour
         if (vida <= 0)
         {
             Debug.Log("A nave foi destruída!");
-            Destroy(gameObject); 
+            Destroy(gameObject);
+            Die();
         }
 
     }
 
     void Die() 
-    { 
-     
-    
-    
+    {
+      if (gameOverPanel != null)
+        {
+            gameOverPanel.SetActive(true);
+        }
+
+
     }
 
 }
