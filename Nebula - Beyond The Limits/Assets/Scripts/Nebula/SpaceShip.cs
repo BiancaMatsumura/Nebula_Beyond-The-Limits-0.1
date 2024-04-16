@@ -67,7 +67,18 @@ public class SpaceShip : MonoBehaviour
             Debug.Log("A nave foi destruida!");
             Instantiate(explosion, transform.position, Quaternion.identity);
             Destroy(gameObject); 
+            Die();
         }
 
+    }    
+    void Die() 
+    {
+      if (gameOverPanel != null)
+        {
+            gameOverPanel.SetActive(true);
+        }
     }
 }
+
+
+
