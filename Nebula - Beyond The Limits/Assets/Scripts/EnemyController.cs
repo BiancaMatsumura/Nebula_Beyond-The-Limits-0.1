@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    [SerializeField] AudioSource audioSource;
+
     public float speed = 5f;
 
     public GameObject bulletPrefab;
@@ -14,7 +16,7 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
-
+        
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
 
 
@@ -25,16 +27,8 @@ public class Enemy : MonoBehaviour
 
 
             nextFireTime = Time.time + 1f / fireRate;
+
+        audioSource.Play();
         }
     }
-
-    public void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            Destroy(gameObject);
-        }
-    }
-
-
 }

@@ -6,6 +6,7 @@ using UnityEngine;
 public class SpaceShip : MonoBehaviour
 {
     private CharacterController controller;
+    [SerializeField] GameObject explosion;
     private Vector3 direction;
 
     [Header("Movement Speed")]
@@ -14,12 +15,13 @@ public class SpaceShip : MonoBehaviour
     private float vertical;
 
     public AudioSource audioPlayer;
+    public AudioSource audioPlayer2;
 
     public int vida = 100;
 
     public GameObject gameOverPanel;
 
-    [SerializeField] GameObject explosion;
+
 
     void Start()
     {
@@ -62,10 +64,11 @@ public class SpaceShip : MonoBehaviour
     void TakeDamage(int damageAmount)
     {
         vida -= damageAmount;
+        audioPlayer2.Play();
+
         if (vida <= 0)
         {
-            Debug.Log("A nave foi destruida!");
-            Instantiate(explosion, transform.position, Quaternion.identity);
+            Instantiate(explosion,transform.position , Quaternion.identity);
             Destroy(gameObject); 
             Die();
         }
