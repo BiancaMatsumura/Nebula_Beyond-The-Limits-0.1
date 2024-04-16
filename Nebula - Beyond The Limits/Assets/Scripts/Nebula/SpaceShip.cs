@@ -47,10 +47,5 @@ public class SpaceShip : MonoBehaviour
         {
             audioPlayer.Play();
         }
-        
    }
-
-
-
-
 }

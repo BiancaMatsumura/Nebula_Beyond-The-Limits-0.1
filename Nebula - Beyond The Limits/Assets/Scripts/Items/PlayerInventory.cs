@@ -6,6 +6,7 @@ using UnityEngine.Events;
 public class playerInventory : MonoBehaviour 
 {
     public int NumberOfGems { get; private set; }
+    public gameOverScreen gameOverScreen;
 
     public UnityEvent<playerInventory> OnGemCollected;
 
@@ -15,5 +16,8 @@ public class playerInventory : MonoBehaviour
         OnGemCollected.Invoke(this);
     }
 
-
+        public void GameOver()
+    {
+        gameOverScreen.Setup(NumberOfGems);
+    }
 }

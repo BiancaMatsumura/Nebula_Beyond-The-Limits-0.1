@@ -8,7 +8,7 @@ public class UIInventory : MonoBehaviour
 
     private TextMeshProUGUI GemCounter;
 
-    // Start is called before the first frame update
+
     void Start()
     {
         GemCounter = GetComponent<TextMeshProUGUI>();
@@ -18,4 +18,6 @@ public class UIInventory : MonoBehaviour
     {
         GemCounter.text = playerInventory.NumberOfGems.ToString();
     }
+
+
 }

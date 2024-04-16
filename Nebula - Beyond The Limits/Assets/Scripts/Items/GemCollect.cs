@@ -7,7 +7,7 @@ public class GemCollect : MonoBehaviour
     private void OnTriggerEnter(Collider other) 
     {
 
-        playerInventory playerInventory= other.GetComponent<playerInventory>();
+        playerInventory playerInventory = other.GetComponent<playerInventory>();
 
         if (playerInventory != null) 
         {  
