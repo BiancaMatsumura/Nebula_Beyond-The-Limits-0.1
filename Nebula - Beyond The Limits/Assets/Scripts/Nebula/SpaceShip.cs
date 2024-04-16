@@ -15,7 +15,10 @@ public class SpaceShip : MonoBehaviour
 
     public AudioSource audioPlayer;
 
-    
+    public int vida = 100;
+
+    public GameObject gameOverPanel;
+
     void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -26,7 +29,7 @@ public class SpaceShip : MonoBehaviour
         Inputs();
 
         MoveCharachter();
-        
+
     }
 
     void Inputs()
@@ -36,16 +39,40 @@ public class SpaceShip : MonoBehaviour
     }
 
     void MoveCharachter()
-   {
-        direction = new Vector3(horizontal, 0f,vertical).normalized;
+    {
+        direction = new Vector3(horizontal, 0f, vertical).normalized;
         controller.Move(direction * movementSpeed * Time.fixedDeltaTime);
-   }
+    }
 
-   public void OnTriggerEnter(Collider other) 
-   {
-        if (other.gameObject.CompareTag("Item")) 
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Item"))
         {
             audioPlayer.Play();
         }
-   }
+        else if (other.gameObject.CompareTag("EnemyAttack"))
+        {
+            TakeDamage(10);
+
+        }
+    }
+
+    void TakeDamage(int damageAmount)
+    {
+        vida -= damageAmount;
+        if (vida <= 0)
+        {
+            Debug.Log("A nave foi destruída!");
+            Destroy(gameObject); 
+        }
+
+    }
+
+    void Die() 
+    { 
+     
+    
+    
+    }
+
 }

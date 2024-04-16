@@ -1704,7 +1704,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1730209618}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -5302,8 +5302,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.018168366, y: 0.0118405465, z: 0.023}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.029391062, y: 0.018942999, z: 0.025544507}
+  m_Center: {x: 0.00078504824, y: 0.00040059982, z: 0.0012722742}
 --- !u!1 &2095247102
 GameObject:
   m_ObjectHideFlags: 0
@@ -10705,8 +10705,6 @@ GameObject:
   - component: {fileID: 7561386588379343567}
   - component: {fileID: 7561386588379343568}
   - component: {fileID: 7561386588379343569}
-  - component: {fileID: 7561386588379343571}
-  - component: {fileID: 7561386588379343570}
   m_Layer: 0
   m_Name: TEST Spaceship
   m_TagString: Player
@@ -15747,6 +15745,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 2
   audioPlayer: {fileID: 1596233286}
+  vida: 20
+  gameOverPanel: {fileID: 184810895}
 --- !u!143 &7561386588379343567
 CharacterController:
   m_ObjectHideFlags: 0
@@ -15813,42 +15813,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d079dce4f627f74a892ba1c531ac6af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 10
   gameOverPanel: {fileID: 184810895}
---- !u!114 &7561386588379343570
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6056068485899861974}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5683dce6c998c504b8253c7ab1cc776c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _beam: {fileID: 0}
-  _muzzlePoint: {fileID: 0}
-  _maxLength: 0
-  _muzzleParticles: {fileID: 0}
-  _hitParticles: {fileID: 0}
-  _damage: 0
-  shootAudio: {fileID: 0}
---- !u!114 &7561386588379343571
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6056068485899861974}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 526583d2f86264042be02dec49b54480, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _initialHealth: 0
-  _explosion: {fileID: 0}
-  _healthbar: {fileID: 0}
 --- !u!1 &8651388435046336793
 GameObject:
   m_ObjectHideFlags: 0
@@ -20665,3 +20631,4 @@ SceneRoots:
   - {fileID: 1242196679}
   - {fileID: 1645691899}
   - {fileID: 165299987}
+  - {fileID: 706908479}

@@ -27,4 +27,14 @@ public class Enemy : MonoBehaviour
             nextFireTime = Time.time + 1f / fireRate;
         }
     }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            Destroy(gameObject);
+        }
+    }
+
+
 }

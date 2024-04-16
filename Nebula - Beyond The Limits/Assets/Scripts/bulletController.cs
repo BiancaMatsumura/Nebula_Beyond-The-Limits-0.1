@@ -18,11 +18,22 @@ public class bulletController : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             
-            collision.gameObject.GetComponent<vidaJogador>().TakeDamage(dano);
+            collision.gameObject.GetComponent<Damage>().ApplyDamage(dano);
 
             
             Destroy(gameObject);
         }
     }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            Destroy(gameObject);
+        }
+    }
+
+
+
 }
 
