@@ -12,8 +12,6 @@ public class Enemy : MonoBehaviour
     public float fireRate = 1f;
     private float nextFireTime = 0f;
 
-    [SerializeField] private float _maxLenght;
-
     void Update()
     {
 
@@ -26,11 +24,7 @@ public class Enemy : MonoBehaviour
             GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
 
 
-
             nextFireTime = Time.time + 1f / fireRate;
         }
-
-    
     }
-    
 }

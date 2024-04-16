@@ -48,12 +48,4 @@ public class SpaceShip : MonoBehaviour
             audioPlayer.Play();
         }
    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if(collision.gameObject.tag == "Bullet")
-        {
-            Destroy(collision.gameObject);
-        }
-    }
 }
