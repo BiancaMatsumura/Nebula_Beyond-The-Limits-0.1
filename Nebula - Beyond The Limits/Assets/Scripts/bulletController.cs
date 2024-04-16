@@ -13,16 +13,18 @@ public class bulletController : MonoBehaviour
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player"))
         {
             
-            collision.gameObject.GetComponent<vidaJogador>().TakeDamage(dano);
+            gameObject.GetComponent<vidaJogador>().TakeDamage(dano);
 
             
             Destroy(gameObject);
         }
+        
     }
+    
 }
 
