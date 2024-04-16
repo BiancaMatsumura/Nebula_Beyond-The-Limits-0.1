@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1089,7 +1089,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 453134417}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.3674035, y: -1e-45, z: 1e-45, w: 0.9300617}
+  m_LocalRotation: {x: 0.3674035, y: 3e-45, z: -1e-45, w: 0.9300617}
   m_LocalPosition: {x: 3.070534, y: 8.948741, z: -2.8889203}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1546,6 +1546,38 @@ Transform:
   m_Children: []
   m_Father: {fileID: 712376240}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &584411022
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 584411023}
+  m_Layer: 0
+  m_Name: ---ENEMIES---
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &584411023
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 584411022}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.36812854, y: 5.1081095, z: 14.329153}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2009483638}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &602927816
 GameObject:
   m_ObjectHideFlags: 0
@@ -1562,7 +1594,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &602927817
 Transform:
   m_ObjectHideFlags: 0
@@ -1588,7 +1620,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: b1b062b5b5aaec842ab02769edb5230e, type: 3}
+  m_audioClip: {fileID: 8300000, guid: a3f397f6b022883469a608309d808dc4, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.3
   m_Pitch: 1
@@ -4660,7 +4692,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1941231865}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.3674035, y: -1e-45, z: 1e-45, w: 0.9300617}
+  m_LocalRotation: {x: 0.3674035, y: 3e-45, z: -1e-45, w: 0.9300617}
   m_LocalPosition: {x: 3.070534, y: 8.948741, z: -2.8889203}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5195,7 +5227,7 @@ GameObject:
   - component: {fileID: 2009483634}
   - component: {fileID: 2009483639}
   m_Layer: 0
-  m_Name: ---ENEMIES---
+  m_Name: enemy 1
   m_TagString: EnemyAttack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5275,13 +5307,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2009483633}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.9999966, z: 0.0026179885, w: 0}
-  m_LocalPosition: {x: 0.149, y: 0.358, z: 19.48}
-  m_LocalScale: {x: 49.25, y: 49.25, z: 49.25}
+  m_LocalRotation: {x: -0, y: 0.9999966, z: 0.0026179885, w: 0}
+  m_LocalPosition: {x: -0.2191286, y: -4.7501097, z: 5.1508465}
+  m_LocalScale: {x: 49.25, y: 49.25, z: 49.250004}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 532861595}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 584411023}
   m_LocalEulerAnglesHint: {x: -0.3, y: 180, z: 0}
 --- !u!65 &2009483639
 BoxCollider:
@@ -5302,8 +5334,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.029391062, y: 0.018942999, z: 0.025544507}
-  m_Center: {x: 0.00078504824, y: 0.00040059982, z: 0.0012722742}
+  m_Size: {x: 0.019016976, y: 0.014780494, z: 0.021917272}
+  m_Center: {x: 0.00051556865, y: -0.001680644, z: -0.00054134807}
 --- !u!1 &2095247102
 GameObject:
   m_ObjectHideFlags: 0
@@ -5481,7 +5513,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5b6a0572e60cadd4685233c1a0b3ad3a, type: 2}
+  - {fileID: 2100000, guid: 8dfebba0d10bbcc47b7eec12d9b44aa8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5576,7 +5608,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: b1b062b5b5aaec842ab02769edb5230e, type: 3}
+  m_audioClip: {fileID: 8300000, guid: a3f397f6b022883469a608309d808dc4, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.5
   m_Pitch: 1
@@ -5683,7 +5715,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 73f32c8d182257f49adfd3ce5df67fc0, type: 2}
+  - {fileID: 10756, guid: 0000000000000000e000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5792,8 +5824,8 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5b6a0572e60cadd4685233c1a0b3ad3a, type: 2}
-  - {fileID: 2100000, guid: 5b6a0572e60cadd4685233c1a0b3ad3a, type: 2}
+  - {fileID: 2100000, guid: 98d4b517eb6dbc44ba40d56553098ec0, type: 2}
+  - {fileID: 2100000, guid: 2cc858e1a5e664a4da45f0ca8a46d5b7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -15747,6 +15779,7 @@ MonoBehaviour:
   audioPlayer: {fileID: 1596233286}
   vida: 20
   gameOverPanel: {fileID: 184810895}
+  explosion: {fileID: 8651388435046336793}
 --- !u!143 &7561386588379343567
 CharacterController:
   m_ObjectHideFlags: 0
@@ -20622,12 +20655,12 @@ SceneRoots:
   - {fileID: 1334657768}
   - {fileID: 1863793484}
   - {fileID: 926596172}
+  - {fileID: 584411023}
   - {fileID: 376943549}
   - {fileID: 953834450}
   - {fileID: 102913623}
   - {fileID: 22209995}
   - {fileID: 712376240}
-  - {fileID: 2009483638}
   - {fileID: 1242196679}
   - {fileID: 1645691899}
   - {fileID: 165299987}

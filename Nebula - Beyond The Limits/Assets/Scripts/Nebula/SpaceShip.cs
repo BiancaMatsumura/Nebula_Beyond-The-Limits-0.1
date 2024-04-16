@@ -19,6 +19,8 @@ public class SpaceShip : MonoBehaviour
 
     public GameObject gameOverPanel;
 
+    [SerializeField] GameObject explosion;
+
     void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -62,17 +64,10 @@ public class SpaceShip : MonoBehaviour
         vida -= damageAmount;
         if (vida <= 0)
         {
-            Debug.Log("A nave foi destruída!");
+            Debug.Log("A nave foi destruida!");
+            Instantiate(explosion, transform.position, Quaternion.identity);
             Destroy(gameObject); 
         }
 
     }
-
-    void Die() 
-    { 
-     
-    
-    
-    }
-
 }
