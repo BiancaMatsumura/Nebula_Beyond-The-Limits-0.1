@@ -16,9 +16,13 @@ public class SpaceShip : MonoBehaviour
     private float horizontal;
     private float vertical;
 
+    [Header("Audios")]
     public AudioSource audioPlayer;
     public AudioSource audioPlayer2;
+    public AudioSource audioPlayer3;
+    
 
+    
     public int vida = 100;
 
     public GameObject gameOverPanel;
@@ -42,8 +46,9 @@ public class SpaceShip : MonoBehaviour
         MoveCharachter();
 
              if (Input.GetButtonDown("Fire1"))
-             {
-                  Shoot(); 
+             {  
+                audioPlayer3.Play();
+                Shoot(); 
              }
 
 
