@@ -9,6 +9,7 @@ TagManager:
   - Bullet
   - PlayerAttack
   - Enemy
+  - ItemCura
   layers:
   - Default
   - TransparentFX

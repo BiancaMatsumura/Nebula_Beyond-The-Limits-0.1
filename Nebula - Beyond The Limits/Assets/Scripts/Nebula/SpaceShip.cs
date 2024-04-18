@@ -66,13 +66,35 @@ public class SpaceShip : MonoBehaviour
             if (other.gameObject.CompareTag("Item"))
             {
                 audioPlayer.Play();
+
             }
-            else if (other.gameObject.CompareTag("EnemyAttack"))
-            {
+               else if (other.gameObject.CompareTag("EnemyAttack"))
+               {
                 TakeDamage(10);
                 Destroy(other.gameObject);
 
-            }
+               }
+                   else if (other.gameObject.CompareTag("ItemCura"))
+                   {
+                          ItemCura itemCura = other.gameObject.GetComponent<ItemCura>();
+                         if (itemCura != null)
+                         {
+                
+                              vida += itemCura.quantidadeCura;
+
+                
+                                 vida = Mathf.Min(vida, 50);
+
+                
+                                if (healthbar != null)
+                                 healthbar.Health = vida;
+
+                    
+                              Destroy(other.gameObject);
+                              audioPlayer.Play();
+
+                         }
+                   }
         }
 
         void TakeDamage(int damageAmount)
