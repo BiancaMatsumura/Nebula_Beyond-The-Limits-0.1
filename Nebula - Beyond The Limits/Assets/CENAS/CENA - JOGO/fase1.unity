@@ -1121,7 +1121,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 453134417}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.3674035, y: -1e-45, z: 1e-45, w: 0.9300617}
+  m_LocalRotation: {x: 0.3674035, y: 3e-45, z: -1e-45, w: 0.9300617}
   m_LocalPosition: {x: 3.070534, y: 8.948741, z: -2.8889203}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3208,6 +3208,7 @@ GameObject:
   - component: {fileID: 1242196678}
   - component: {fileID: 1242196677}
   - component: {fileID: 1242196676}
+  - component: {fileID: 1242196680}
   m_Layer: 5
   m_Name: ---USERINTERFACE---
   m_TagString: Untagged
@@ -3302,6 +3303,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1242196680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1242196675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec8f073215e2b824d898f65da811d88a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vida: 10
+  vidaMaxima: 50
+  healthBar: {fileID: 540437294}
 --- !u!1 &1334657767
 GameObject:
   m_ObjectHideFlags: 0
@@ -4709,7 +4725,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1941231865}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.3674035, y: -1e-45, z: 1e-45, w: 0.9300617}
+  m_LocalRotation: {x: 0.3674035, y: 3e-45, z: -1e-45, w: 0.9300617}
   m_LocalPosition: {x: 3.070534, y: 8.948741, z: -2.8889203}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -15784,6 +15800,7 @@ MonoBehaviour:
   gameOverPanel: {fileID: 184810895}
   bulletPrefab: {fileID: 5361266936097680113, guid: afc0826bc3e412346a0adb033b355a8c, type: 3}
   firePoint: {fileID: 277375493}
+  healthbar: {fileID: 1242196680}
 --- !u!143 &7561386588379343567
 CharacterController:
   m_ObjectHideFlags: 0

@@ -26,11 +26,12 @@ public class SpaceShip : MonoBehaviour
     public GameObject bulletPrefab;
     public Transform firePoint;
 
-    
+    public Healthbar healthbar;
 
     void Start()
     {
         controller = GetComponent<CharacterController>();
+        healthbar = FindObjectOfType<Healthbar>();
 
     }
 
@@ -85,6 +86,8 @@ public class SpaceShip : MonoBehaviour
                 Destroy(gameObject);
                 Die();
             }
+
+             healthbar.Health = vida;    
 
         }
         void Die()
