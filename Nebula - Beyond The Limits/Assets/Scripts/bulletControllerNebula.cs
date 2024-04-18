@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class bulletController : MonoBehaviour
+public class bulletControllerNebula : MonoBehaviour
 {
     public float speed = 10f;
     public int dano = 10;
@@ -15,7 +15,7 @@ public class bulletController : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Enemy"))
         {
 
             Destroy(gameObject);
@@ -28,11 +28,13 @@ public class bulletController : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Enemy"))
         {
             Destroy(gameObject);
         }
     }
+
+
 
 
 

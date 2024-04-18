@@ -2,9 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class EnemyController : MonoBehaviour
 {
     [SerializeField] AudioSource audioSource;
+    [SerializeField] GameObject explosion;
+
+    public int vida = 10;
 
     public float speed = 5f;
 
@@ -14,9 +17,12 @@ public class Enemy : MonoBehaviour
     public float fireRate = 1f;
     private float nextFireTime = 0f;
 
+    public AudioSource audioPlayer;
+    public AudioSource audioPlayer2;
+
     void Update()
     {
-        
+
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
 
 
@@ -28,7 +34,36 @@ public class Enemy : MonoBehaviour
 
             nextFireTime = Time.time + 1f / fireRate;
 
-        audioSource.Play();
+            audioSource.Play();
+        }
+
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("PlayerAttack"))
+        {
+            audioPlayer2.Play();
+            TakeDamage(10);
+
         }
     }
+
+    void TakeDamage(int damageAmount)
+    {
+        vida -= damageAmount;
+        
+
+        if (vida <= 0)
+        {
+            Instantiate(explosion, transform.position, Quaternion.identity);
+            Destroy(gameObject);
+          
+        }
+
+    }
+
+
+
+
 }

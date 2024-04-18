@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class SpaceShip : MonoBehaviour
 {
+    [SerializeField] AudioSource audioSource;
+
     private CharacterController controller;
     [SerializeField] GameObject explosion;
     private Vector3 direction;
@@ -21,11 +23,15 @@ public class SpaceShip : MonoBehaviour
 
     public GameObject gameOverPanel;
 
+    public GameObject bulletPrefab;
+    public Transform firePoint;
 
+    
 
     void Start()
     {
         controller = GetComponent<CharacterController>();
+
     }
 
     void Update()
@@ -34,54 +40,75 @@ public class SpaceShip : MonoBehaviour
 
         MoveCharachter();
 
+             if (Input.GetButtonDown("Fire1"))
+             {
+                  Shoot(); 
+             }
+
+
     }
 
-    void Inputs()
-    {
-        vertical = Input.GetAxisRaw("Vertical");
-        horizontal = Input.GetAxisRaw("Horizontal");
-    }
-
-    void MoveCharachter()
-    {
-        direction = new Vector3(horizontal, 0f, vertical).normalized;
-        controller.Move(direction * movementSpeed * Time.fixedDeltaTime);
-    }
-
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Item"))
+        void Inputs()
         {
-            audioPlayer.Play();
-        }
-        else if (other.gameObject.CompareTag("EnemyAttack"))
-        {
-            TakeDamage(10);
-
-        }
-    }
-
-    void TakeDamage(int damageAmount)
-    {
-        vida -= damageAmount;
-        audioPlayer2.Play();
-
-        if (vida <= 0)
-        {
-            Instantiate(explosion,transform.position , Quaternion.identity);
-            Destroy(gameObject); 
-            Die();
+            vertical = Input.GetAxisRaw("Vertical");
+            horizontal = Input.GetAxisRaw("Horizontal");
         }
 
-    }    
-    void Die() 
-    {
-      if (gameOverPanel != null)
+        void MoveCharachter()
         {
-            gameOverPanel.SetActive(true);
+            direction = new Vector3(horizontal, 0f, vertical).normalized;
+            controller.Move(direction * movementSpeed * Time.fixedDeltaTime);
         }
+
+        void OnTriggerEnter(Collider other)
+        {
+            if (other.gameObject.CompareTag("Item"))
+            {
+                audioPlayer.Play();
+            }
+            else if (other.gameObject.CompareTag("EnemyAttack"))
+            {
+                TakeDamage(10);
+                Destroy(other.gameObject);
+
+            }
+        }
+
+        void TakeDamage(int damageAmount)
+        {
+            vida -= damageAmount;
+            audioPlayer2.Play();
+
+            if (vida <= 0)
+            {
+                Instantiate(explosion, transform.position, Quaternion.identity);
+                Destroy(gameObject);
+                Die();
+            }
+
+        }
+        void Die()
+        {
+            if (gameOverPanel != null)
+            {
+                gameOverPanel.SetActive(true);
+            }
+        }
+
+    void Shoot() 
+    {
+
+        Instantiate(bulletPrefab, transform.position, transform.rotation);
+
+        Debug.Log("Atirei");
+
     }
+
+
+   
 }
+
+
 
 
 
