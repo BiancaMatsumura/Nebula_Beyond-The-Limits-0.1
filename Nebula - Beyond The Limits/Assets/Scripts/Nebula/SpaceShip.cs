@@ -39,19 +39,19 @@ public class SpaceShip : MonoBehaviour
 
     }
 
+
     void Update()
     {
-        Inputs();
-
-        MoveCharachter();
-
+         Inputs();
              if (Input.GetButtonDown("Fire1"))
              {  
                 audioPlayer3.Play();
                 Shoot(); 
              }
-
-
+    }
+    void FixedUpdate()
+    {
+        MoveCharachter();
     }
 
         void Inputs()

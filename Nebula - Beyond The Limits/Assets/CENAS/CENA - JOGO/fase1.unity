@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -237,7 +237,7 @@ Transform:
   m_GameObject: {fileID: 22209990}
   serializedVersion: 2
   m_LocalRotation: {x: 0.5, y: -0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: -7, y: -0.5, z: 48}
+  m_LocalPosition: {x: -7, y: -4.68, z: 48}
   m_LocalScale: {x: 182.30043, y: 219.76826, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -983,7 +983,7 @@ Transform:
   m_GameObject: {fileID: 411689201}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: 5.29, y: 5.58, z: 9.69}
+  m_LocalPosition: {x: 5.29, y: 5.672, z: 9.69}
   m_LocalScale: {x: 0.17095497, y: 0.18778685, z: 0.18026496}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -17286,7 +17286,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSource: {fileID: 602927818}
   explosion: {fileID: 9126560832837868632}
-  movementSpeed: 5
+  movementSpeed: 10
   audioPlayer: {fileID: 1596233286}
   audioPlayer2: {fileID: 964702336}
   audioPlayer3: {fileID: 432780224}
