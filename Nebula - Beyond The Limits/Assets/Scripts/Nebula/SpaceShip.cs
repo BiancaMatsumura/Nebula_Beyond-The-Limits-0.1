@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class SpaceShip : MonoBehaviour
 {
+    public static event Action OnPlayerDestroyed;
+
     [SerializeField] AudioSource audioSource;
 
     private CharacterController controller;
@@ -26,11 +28,16 @@ public class SpaceShip : MonoBehaviour
     public int vida = 100;
 
     public GameObject gameOverPanel;
+    public GameObject victoryPanel;
 
     public GameObject bulletPrefab;
     public Transform firePoint;
 
     public Healthbar healthbar;
+
+    public int inimigosDestruidos = 0; 
+    public int metaInimigos = 10;
+
 
     void Start()
     {
@@ -123,6 +130,8 @@ public class SpaceShip : MonoBehaviour
             {
                 gameOverPanel.SetActive(true);
             }
+
+            OnPlayerDestroyed?.Invoke();
         }
 
     void Shoot() 
@@ -134,8 +143,18 @@ public class SpaceShip : MonoBehaviour
 
     }
 
+    public void EnemyDestroyed()
+    {
+        inimigosDestruidos++; 
 
-   
+        
+        if (inimigosDestruidos >= metaInimigos)
+        {
+
+            victoryPanel.SetActive(true);
+        }
+    }
+
 }
 
 
