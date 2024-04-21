@@ -4,46 +4,61 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    public float range;
-    public float interval;
-    private float counter = 0;
+    public GameObject enemyPrefab;
+    public float spawnInterval = 2f;
+    public Vector3 spawnAreaSize = new Vector3(10f, 0f, 10f);
+    public Transform player;
+    public GameObject explosionPrefab;
 
-    private int spawnedEnimiesCount = 0;
-    
-    public GameObject explosion;
+    private SpaceShip playerSpaceShip;
 
-    public GameObject ObjectToSpawn;
 
-    public SpaceShip player;
 
-    public AudioSource audioSource;
-    
-    public AudioSource audioPlayer;
-
-    public AudioSource audioPlayer2;
-    
-    public int MaxEnemies;
-    
-
-    void Update()
+    private void Start()
     {
-        if(spawnedEnimiesCount <= MaxEnemies){
-            canSpawn();
-        }
-       
+        playerSpaceShip = FindObjectOfType<SpaceShip>();
+
+        StartCoroutine(SpawnEnemies());
+
     }
 
-    void canSpawn(){
-        counter += Time.deltaTime;
-        if (counter > interval){
-            GameObject spawnedObject = Instantiate(ObjectToSpawn, new Vector3(transform.position.x + Random.Range(-range, range),transform.position.y,transform.position.z), transform.rotation);            
-            spawnedObject.GetComponent<EnemyController>().explosion = explosion;
-            spawnedObject.GetComponent<EnemyController>().player = player;
-            spawnedObject.GetComponent<EnemyController>().audioSource = audioSource;
-            spawnedObject.GetComponent<EnemyController>().audioPlayer = audioPlayer;
-            spawnedObject.GetComponent<EnemyController>().audioPlayer2 = audioPlayer2;
-            counter = 0;
-            spawnedEnimiesCount++;
+    private IEnumerator SpawnEnemies()
+    {
+
+        while (playerSpaceShip != null && playerSpaceShip.vida > 0)
+        {
+            Vector3 spawnPosition = GetRandomSpawnPosition();
+            GameObject enemyObject = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
+
+            
+            EnemyController enemyController = enemyObject.GetComponent<EnemyController>();
+            enemyController.explosionPrefab = explosionPrefab;
+
+            
+            Vector3 directionToPlayer = (player.position - spawnPosition).normalized;
+
+            
+            Quaternion lookRotation = Quaternion.LookRotation(directionToPlayer);
+
+            
+            enemyObject.transform.rotation = lookRotation;
+
+            yield return new WaitForSeconds(spawnInterval);
         }
+
+    }
+
+    private Vector3 GetRandomSpawnPosition()
+    {
+        Vector3 spawnPosition = transform.position;
+        spawnPosition.x += Random.Range(-spawnAreaSize.x / 2f, spawnAreaSize.x / 2f);
+        spawnPosition.z += Random.Range(-spawnAreaSize.z / 2f, spawnAreaSize.z / 2f);
+        return spawnPosition;
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireCube(transform.position, spawnAreaSize);
     }
 }

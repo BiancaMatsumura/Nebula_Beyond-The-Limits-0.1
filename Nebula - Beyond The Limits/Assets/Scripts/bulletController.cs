@@ -7,6 +7,14 @@ public class bulletController : MonoBehaviour
     public float speed = 10f;
     public int dano = 10;
 
+
+    private void Start()
+    {
+
+        
+
+    }
+
     void Update()
     {
         if(transform.position.z < 0.4){
@@ -35,6 +43,16 @@ public class bulletController : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    public void SetDirection(Vector3 direction)
+    {
+        direction.z = -direction.z;
+
+        transform.forward = direction;
+
+        Debug.Log("Direção da bala: " + transform.forward);
+    }
+
 
 
 

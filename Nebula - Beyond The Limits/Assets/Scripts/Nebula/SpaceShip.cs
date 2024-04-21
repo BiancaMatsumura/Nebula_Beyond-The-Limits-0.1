@@ -110,7 +110,7 @@ public class SpaceShip : MonoBehaviour
 
             if (vida <= 0)
             {
-                Instantiate(explosion, transform.position, Quaternion.identity);
+                 Instantiate(explosion, transform.position, Quaternion.identity);
                 Destroy(gameObject);
                 Die();
             }
