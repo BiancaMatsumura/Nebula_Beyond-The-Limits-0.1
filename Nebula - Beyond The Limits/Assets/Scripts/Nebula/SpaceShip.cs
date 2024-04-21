@@ -38,11 +38,18 @@ public class SpaceShip : MonoBehaviour
     public int inimigosDestruidos = 0; 
     public int metaInimigos = 10;
 
+    public int pontos = 000;
+    public pontos pontosScript;
+
+    public gameOverScreen gameOverScreen;
+    public victoryScreen victoryScreen;
+
 
     void Start()
     {
         controller = GetComponent<CharacterController>();
         healthbar = FindObjectOfType<Healthbar>();
+
 
     }
 
@@ -129,7 +136,11 @@ public class SpaceShip : MonoBehaviour
             if (gameOverPanel != null)
             {
                 gameOverPanel.SetActive(true);
+
+                gameOverScreen.Setup(pontos);
             }
+
+            Time.timeScale = 0f;
 
             OnPlayerDestroyed?.Invoke();
         }
@@ -145,13 +156,23 @@ public class SpaceShip : MonoBehaviour
 
     public void EnemyDestroyed()
     {
-        inimigosDestruidos++; 
+        inimigosDestruidos++;
 
-        
+        pontos += 100;
+
+        pontosScript.Setup(pontos);
+
+
         if (inimigosDestruidos >= metaInimigos)
         {
 
             victoryPanel.SetActive(true);
+
+            victoryScreen.Setup(pontos);
+
+            
+
+            Time.timeScale = 0f;
         }
     }
 

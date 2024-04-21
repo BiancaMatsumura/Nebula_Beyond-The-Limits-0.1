@@ -7,6 +7,27 @@ public class UIController : MonoBehaviour
 {
 
     [SerializeField] public GameObject PauseMenuPanel;
+
+    
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (PauseMenuPanel.activeSelf)
+            {
+                
+                Resume();
+            }
+            else
+            {
+                
+                Pause();
+            }
+        }
+    }
+
+
+
     public void carregaCena(string nomeCena) 
     {
         SceneManager.LoadScene(nomeCena);
@@ -34,5 +55,7 @@ public class UIController : MonoBehaviour
     {
         PauseMenuPanel.SetActive(true);
         Time.timeScale = 0f;
+
+
     }
 }

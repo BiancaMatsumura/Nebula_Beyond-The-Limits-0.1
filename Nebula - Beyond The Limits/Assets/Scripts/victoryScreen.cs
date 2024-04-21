@@ -1,10 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
-public class gameOverScreen : MonoBehaviour
+public class victoryScreen : MonoBehaviour
 {
     public Text pointsText;
 
@@ -14,7 +14,7 @@ public class gameOverScreen : MonoBehaviour
         pointsText.text = pontos.ToString() + " POINTS";
     }
 
-    public void RestartButton() 
+    public void RestartButton()
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene("fase1");
