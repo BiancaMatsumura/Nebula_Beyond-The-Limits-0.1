@@ -9,7 +9,9 @@ public class bulletController : MonoBehaviour
 
     void Update()
     {
-
+        if(transform.position.z < 0.4){
+            Destroy(gameObject);
+        }
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
     }
 
@@ -20,10 +22,10 @@ public class bulletController : MonoBehaviour
 
             Destroy(gameObject);
 
-            Debug.Log("Colisão com inimigo");
+            Debug.Log("Colisï¿½o com inimigo");
         }
 
-        Debug.Log("Colisão");
+        Debug.Log("Colisï¿½o");
     }
 
     public void OnTriggerEnter(Collider other)

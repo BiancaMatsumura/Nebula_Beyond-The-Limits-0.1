@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    [SerializeField] AudioSource audioSource;
-    [SerializeField] GameObject explosion;
+    [SerializeField] public AudioSource audioSource;
+    [SerializeField] public GameObject explosion;
 
     public int vida = 10;
 
@@ -20,16 +20,23 @@ public class EnemyController : MonoBehaviour
     public AudioSource audioPlayer;
     public AudioSource audioPlayer2;
 
+    public SpaceShip player;
+
     void Update()
     {
 
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
+
+        if(transform.position.z < 0.4){
+            overBoundery();
+        }
 
 
         if (Time.time >= nextFireTime)
         {
 
             GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+            bullet.tag = "EnemyAttack";
 
 
             nextFireTime = Time.time + 1f / fireRate;
@@ -47,6 +54,12 @@ public class EnemyController : MonoBehaviour
             TakeDamage(10);
 
         }
+    }
+
+    void overBoundery(){
+
+        player.TakeDamage(10);
+        Destroy(gameObject);
     }
 
     void TakeDamage(int damageAmount)

@@ -6,7 +6,7 @@ using UnityEngine;
 public class SpaceShip : MonoBehaviour
 {
     [SerializeField] AudioSource audioSource;
-
+    private playerInventory inventory;
     private CharacterController controller;
     [SerializeField] GameObject explosion;
     private Vector3 direction;
@@ -34,6 +34,7 @@ public class SpaceShip : MonoBehaviour
 
     void Start()
     {
+        inventory = GetComponent<playerInventory>();
         controller = GetComponent<CharacterController>();
         healthbar = FindObjectOfType<Healthbar>();
 
@@ -102,7 +103,7 @@ public class SpaceShip : MonoBehaviour
                    }
         }
 
-        void TakeDamage(int damageAmount)
+        public void TakeDamage(int damageAmount)
         {
             vida -= damageAmount;
             audioPlayer2.Play();
@@ -121,7 +122,7 @@ public class SpaceShip : MonoBehaviour
         {
             if (gameOverPanel != null)
             {
-                gameOverPanel.SetActive(true);
+                gameOverPanel.GetComponent<gameOverScreen>().Setup(inventory.NumberOfGems);
             }
         }
 
