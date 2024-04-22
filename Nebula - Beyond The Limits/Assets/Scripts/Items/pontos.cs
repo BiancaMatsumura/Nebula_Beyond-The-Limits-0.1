@@ -10,10 +10,10 @@ public class pontos : MonoBehaviour
     public Text pointsText;
 
 
-    public void Setup(int pontos)
+    public void Setup(int score)
     {
-
-        pointsText.text = pontos.ToString() + " POINTS";
+        gameObject.SetActive(true);
+        pointsText.text = score.ToString() + " POINTS";
     
     }
 }
