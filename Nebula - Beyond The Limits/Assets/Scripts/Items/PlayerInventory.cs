@@ -8,6 +8,8 @@ public class playerInventory : MonoBehaviour
     public int NumberOfGems { get; private set; }
     public gameOverScreen gameOverScreen;
 
+    public pontos pontos;
+
     public UnityEvent<playerInventory> OnGemCollected;
 
     public void GemCollected() 
@@ -19,5 +21,6 @@ public class playerInventory : MonoBehaviour
         public void GameOver()
     {
         gameOverScreen.Setup(NumberOfGems);
+        pontos.Setup(NumberOfGems);
     }
 }
