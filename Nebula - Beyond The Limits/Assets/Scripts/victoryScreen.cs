@@ -9,7 +9,8 @@ public class victoryScreen : MonoBehaviour
     public Text pointsText;
 
     public void Setup(int pontos)
-    {
+    {   
+        Time.timeScale = 0f;
         gameObject.SetActive(true);
         pointsText.text = pontos.ToString() + " POINTS";
     }

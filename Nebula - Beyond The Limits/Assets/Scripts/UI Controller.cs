@@ -8,7 +8,6 @@ public class UIController : MonoBehaviour
 
     [SerializeField] public GameObject PauseMenuPanel;
 
-    
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))

@@ -13,7 +13,7 @@ public class EnemyController : MonoBehaviour
 
     public GameObject bulletPrefab;
     public Transform firePoint;
-
+    public GameObject GemModel;
     public GameObject explosionPrefab;
 
     public float fireRate = 1f;
@@ -64,6 +64,12 @@ public class EnemyController : MonoBehaviour
         Destroy(gameObject);
     }
 
+    private void DropGem()
+    {
+        Vector3 position = transform.position;
+        GameObject Gem = Instantiate(GemModel, position, Quaternion.identity);
+    }
+
     void TakeDamage(int damageAmount)
     {
         vida -= damageAmount;
@@ -73,6 +79,7 @@ public class EnemyController : MonoBehaviour
         {
             Instantiate(explosion, transform.position, Quaternion.identity);
             Destroy(gameObject);
+            DropGem();
 
             if (FindObjectOfType<SpaceShip>() != null)
             {
