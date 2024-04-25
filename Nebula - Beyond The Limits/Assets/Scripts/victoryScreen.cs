@@ -15,10 +15,10 @@ public class victoryScreen : MonoBehaviour
         pointsText.text = pontos.ToString() + " POINTS";
     }
 
-    public void RestartButton()
+    public void NextStage()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("fase1");
+        SceneManager.LoadScene("fase2");
     }
 
     public void MenuButton()

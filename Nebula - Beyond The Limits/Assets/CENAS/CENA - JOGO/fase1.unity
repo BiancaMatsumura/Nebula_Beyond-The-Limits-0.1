@@ -198,7 +198,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 69477fa7e88c11b4aaccd9f6aeb0fbfb, type: 2}
+  - {fileID: 2100000, guid: 5fb47041ec689604ea468319ac47ec03, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -237,7 +237,7 @@ Transform:
   m_GameObject: {fileID: 22209990}
   serializedVersion: 2
   m_LocalRotation: {x: 0.5, y: -0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: -7, y: -4.68, z: 48}
+  m_LocalPosition: {x: -1.3, y: -20.7, z: 48}
   m_LocalScale: {x: 182.30043, y: 219.76826, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -328,6 +328,7 @@ GameObject:
   m_Component:
   - component: {fileID: 165299987}
   - component: {fileID: 165299986}
+  - component: {fileID: 165299988}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -363,6 +364,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &165299988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 165299985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e844434226ed1314c91d37b0847a7cb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &184810895
 GameObject:
   m_ObjectHideFlags: 0
@@ -4835,9 +4848,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 184810899}
-        m_TargetAssemblyTypeName: gameOverScreen, Assembly-CSharp
-        m_MethodName: RestartButton
+      - m_Target: {fileID: 320449201}
+        m_TargetAssemblyTypeName: victoryScreen, Assembly-CSharp
+        m_MethodName: NextStage
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
