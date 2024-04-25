@@ -26,11 +26,19 @@ public class SpaceShip : MonoBehaviour
     public int vida = 100;
 
     public GameObject gameOverPanel;
+    public GameObject victoryPanel;
+    public gameOverScreen gameOverScreen;
+    public victoryScreen victoryScreen;
 
     public GameObject bulletPrefab;
     public Transform firePoint;
 
     public Healthbar healthbar;
+
+    public pontos pontosScript;
+    public int pontos = 0;
+
+    public int enemiesDestroyed = 0;
 
     void Start()
     {
@@ -122,8 +130,15 @@ public class SpaceShip : MonoBehaviour
         {
             if (gameOverPanel != null)
             {
-                gameOverPanel.GetComponent<gameOverScreen>().Setup(inventory.NumberOfGems);
+                  gameOverPanel.SetActive(true);
+
+                  gameOverScreen.Setup(pontos);
+
+                  Time.timeScale = 0f;
             }
+
+             
+
         }
 
     void Shoot() 
@@ -135,8 +150,22 @@ public class SpaceShip : MonoBehaviour
 
     }
 
+    public void EnemyDestroyed()
+    {
+        enemiesDestroyed++;
+        pontos += 150;
 
-   
+        pontosScript.Setup(pontos);
+
+        if (pontos >= 750)
+        {
+            victoryPanel.SetActive(true);
+            victoryScreen.Setup(pontos);
+            Time.timeScale = 0f;
+        }
+    }
+
+
 }
 
 

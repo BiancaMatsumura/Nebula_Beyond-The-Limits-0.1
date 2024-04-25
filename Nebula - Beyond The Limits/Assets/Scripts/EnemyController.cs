@@ -73,7 +73,12 @@ public class EnemyController : MonoBehaviour
         {
             Instantiate(explosion, transform.position, Quaternion.identity);
             Destroy(gameObject);
-          
+
+            if (FindObjectOfType<SpaceShip>() != null)
+            {
+                FindObjectOfType<SpaceShip>().EnemyDestroyed();
+            }
+
         }
 
     }
