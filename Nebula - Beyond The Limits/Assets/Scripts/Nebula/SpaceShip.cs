@@ -5,40 +5,43 @@ using UnityEngine;
 
 public class SpaceShip : MonoBehaviour
 {
-    [SerializeField] AudioSource audioSource;
-    private playerInventory inventory;
-    private CharacterController controller;
-    [SerializeField] GameObject explosion;
-    private Vector3 direction;
-
-    [Header("Movement Speed")]
-    public float movementSpeed = 1f;
-    private float horizontal;
-    private float vertical;
-
-    [Header("Audios")]
-    public AudioSource audioPlayer;
-    public AudioSource audioPlayer2;
-    public AudioSource audioPlayer3;
-    
-
-    
+    [Header("Informações do Player")]
     public int vida = 100;
+    public float movementSpeed = 1f;
+    public int pontos = 0;
+    public int enemiesDestroyed = 0;
+    public GameObject bulletPrefab;
+    public Transform firePoint;
+    public Healthbar healthbar;
+    public pontos pontosScript;
 
+    [Header("Audios / FX")]
+    public AudioSource ItemPickup;
+    public AudioSource DanoNave;
+    public AudioSource Laser;
+    [SerializeField] AudioSource Explosão;
+    [SerializeField] GameObject explosion;
+
+    [Header("Painéis")]
     public GameObject gameOverPanel;
     public GameObject victoryPanel;
+    [SerializeField] public GameObject PauseMenuPanel;
+    [SerializeField] public GameObject optionPanel;
     public gameOverScreen gameOverScreen;
     public victoryScreen victoryScreen;
 
-    public GameObject bulletPrefab;
-    public Transform firePoint;
 
-    public Healthbar healthbar;
+    private playerInventory inventory;
 
-    public pontos pontosScript;
-    public int pontos = 0;
+    private CharacterController controller;
 
-    public int enemiesDestroyed = 0;
+    private Vector3 direction;
+
+    private float horizontal;
+
+    private float vertical;
+
+
 
     void Start()
     {
@@ -52,11 +55,12 @@ public class SpaceShip : MonoBehaviour
     void Update()
     {
          Inputs();
-             if (Input.GetButtonDown("Fire1"))
-             {  
-                audioPlayer3.Play();
-                Shoot(); 
-             }
+
+        if (!PauseMenuPanel.activeSelf && !optionPanel.activeSelf && Input.GetButtonDown("Fire1"))
+        {
+            Laser.Play();
+            Shoot();
+        }
     }
     void FixedUpdate()
     {
@@ -79,7 +83,7 @@ public class SpaceShip : MonoBehaviour
         {
             if (other.gameObject.CompareTag("Item"))
             {
-                audioPlayer.Play();
+                ItemPickup.Play();
 
             }
                else if (other.gameObject.CompareTag("EnemyAttack"))
@@ -105,7 +109,7 @@ public class SpaceShip : MonoBehaviour
 
                     
                               Destroy(other.gameObject);
-                              audioPlayer.Play();
+                              ItemPickup.Play();
 
                          }
                    }
@@ -114,7 +118,7 @@ public class SpaceShip : MonoBehaviour
         public void TakeDamage(int damageAmount)
         {
             vida -= damageAmount;
-            audioPlayer2.Play();
+            DanoNave.Play();
 
             if (vida <= 0)
             {
