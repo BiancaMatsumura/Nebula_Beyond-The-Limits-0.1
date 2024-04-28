@@ -161,7 +161,7 @@ public class SpaceShip : MonoBehaviour
 
         pontosScript.Setup(pontos);
 
-        if (pontos >= 750)
+        if (pontos >= 1200)
         {
             victoryPanel.SetActive(true);
             victoryScreen.Setup(pontos);

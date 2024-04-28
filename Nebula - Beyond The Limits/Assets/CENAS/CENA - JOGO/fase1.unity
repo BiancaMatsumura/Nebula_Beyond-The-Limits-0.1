@@ -5800,6 +5800,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1670008613}
   - component: {fileID: 1670008612}
+  - component: {fileID: 1670008614}
   m_Layer: 0
   m_Name: ---SPAWNER---
   m_TagString: Untagged
@@ -5843,6 +5844,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!114 &1670008614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1670008611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cda04c6cb98f8e843a29f736b889ecd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  range: 12
+  interval: 8
+  explosion: {fileID: 9126560832837868632}
+  enemyPrefab: {fileID: 6519313319001120943, guid: e9366495bb1eed84d8ff7451404d91cd, type: 3}
+  player: {fileID: 7561386588379343564}
+  audioSource: {fileID: 432780224}
+  audioPlayer: {fileID: 0}
+  audioPlayer2: {fileID: 964702336}
+  maxEnemies: 5
 --- !u!1 &1682618054
 GameObject:
   m_ObjectHideFlags: 0
@@ -7135,7 +7157,7 @@ GameObject:
   - component: {fileID: 1941231870}
   m_Layer: 0
   m_Name: VCamera
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8200,7 +8222,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: a3f397f6b022883469a608309d808dc4, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.12
+  m_Volume: 0.065
   m_Pitch: 1
   Loop: 0
   Mute: 0
