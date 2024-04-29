@@ -9,6 +9,7 @@ public class SpaceShip : MonoBehaviour
     public int vida = 100;
     public float movementSpeed = 1f;
     public int pontos = 0;
+    public int maxPontos = 1200;
     public int enemiesDestroyed = 0;
     public GameObject bulletPrefab;
     public Transform firePoint;
@@ -42,12 +43,12 @@ public class SpaceShip : MonoBehaviour
     private float vertical;
 
 
-
     void Start()
     {
         inventory = GetComponent<playerInventory>();
         controller = GetComponent<CharacterController>();
         healthbar = FindObjectOfType<Healthbar>();
+
 
     }
 
@@ -161,7 +162,7 @@ public class SpaceShip : MonoBehaviour
 
         pontosScript.Setup(pontos);
 
-        if (pontos >= 1200)
+        if (pontos >= maxPontos)
         {
             victoryPanel.SetActive(true);
             victoryScreen.Setup(pontos);
