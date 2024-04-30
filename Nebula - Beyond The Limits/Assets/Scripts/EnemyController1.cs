@@ -16,8 +16,7 @@ public class EnemyController1 : MonoBehaviour
     public AudioSource DanoNave;
 
     private Transform playerTransform;
-
-    
+    public GameObject GemModel;
 
     void Start()
     {
@@ -33,8 +32,7 @@ public class EnemyController1 : MonoBehaviour
     {
         
         if (playerTransform != null)
-        {
-            
+        {            
             transform.LookAt(playerTransform.position);
             transform.Translate(Vector3.forward * speed * Time.deltaTime);
         }
@@ -79,6 +77,7 @@ public class EnemyController1 : MonoBehaviour
         {
             Instantiate(explosion, transform.position, Quaternion.identity);
             Destroy(gameObject);
+            DropGem();
            
 
             if (FindObjectOfType<SpaceShip>() != null)
@@ -90,6 +89,11 @@ public class EnemyController1 : MonoBehaviour
 
     }
 
+    private void DropGem()
+    {
+        Vector3 position = transform.position;
+        GameObject Gem = Instantiate(GemModel, position, Quaternion.identity);
+    }
 
 }
      
