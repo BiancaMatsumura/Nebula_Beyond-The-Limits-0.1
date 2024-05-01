@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Spawner1 : MonoBehaviour
+public class Spawner2 : MonoBehaviour
 {
     public float range;
     public float interval;
@@ -38,9 +38,9 @@ public class Spawner1 : MonoBehaviour
                             transform.position.z),
                 transform.rotation);
 
-            EnemyController1 enemyController = spawnedObject.GetComponent<EnemyController1>(); 
+            EnemyController2 enemyController = spawnedObject.GetComponent<EnemyController2>(); 
             enemyController.explosion = explosion;
-             
+            enemyController.Laser = audioSource;
             enemyController.DanoNave = audioPlayer; 
             counter = 0;
             spawnedEnemiesCount++;

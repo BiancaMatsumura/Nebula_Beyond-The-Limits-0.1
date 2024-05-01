@@ -7,6 +7,7 @@ public class SpaceShip : MonoBehaviour
 {
     [Header("Informações do Player")]
     public int vida = 100;
+    public int escudo = 100;
     public float movementSpeed = 1f;
     public int pontos = 0;
     public int maxPontos = 1200;
@@ -55,7 +56,7 @@ public class SpaceShip : MonoBehaviour
 
     void Update()
     {
-         Inputs();
+        Inputs();
 
         if (!PauseMenuPanel.activeSelf && !optionPanel.activeSelf && Input.GetButtonDown("Fire1"))
         {
@@ -68,85 +69,85 @@ public class SpaceShip : MonoBehaviour
         MoveCharachter();
     }
 
-        void Inputs()
-        {
-            vertical = Input.GetAxisRaw("Vertical");
-            horizontal = Input.GetAxisRaw("Horizontal");
-        }
+    void Inputs()
+    {
+        vertical = Input.GetAxisRaw("Vertical");
+        horizontal = Input.GetAxisRaw("Horizontal");
+    }
 
-        void MoveCharachter()
-        {
-            direction = new Vector3(horizontal, 0f, vertical).normalized;
-            controller.Move(direction * movementSpeed * Time.fixedDeltaTime);
-        }
+    void MoveCharachter()
+    {
+        direction = new Vector3(horizontal, 0f, vertical).normalized;
+        controller.Move(direction * movementSpeed * Time.fixedDeltaTime);
+    }
 
-        void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Item"))
         {
-            if (other.gameObject.CompareTag("Item"))
+            ItemPickup.Play();
+
+        }
+        else if (other.gameObject.CompareTag("EnemyAttack"))
+        {
+            TakeDamage(10);
+            Destroy(other.gameObject);
+
+        }
+        else if (other.gameObject.CompareTag("ItemCura"))
+        {
+            ItemCura itemCura = other.gameObject.GetComponent<ItemCura>();
+            if (itemCura != null)
             {
+
+                vida += itemCura.quantidadeCura;
+
+
+                vida = Mathf.Min(vida, 50);
+
+
+                if (healthbar != null)
+                    healthbar.Health = vida;
+
+
+                Destroy(other.gameObject);
                 ItemPickup.Play();
 
             }
-               else if (other.gameObject.CompareTag("EnemyAttack"))
-               {
-                TakeDamage(10);
-                Destroy(other.gameObject);
-
-               }
-                   else if (other.gameObject.CompareTag("ItemCura"))
-                   {
-                          ItemCura itemCura = other.gameObject.GetComponent<ItemCura>();
-                         if (itemCura != null)
-                         {
-                
-                              vida += itemCura.quantidadeCura;
-
-                
-                                 vida = Mathf.Min(vida, 50);
-
-                
-                                if (healthbar != null)
-                                 healthbar.Health = vida;
-
-                    
-                              Destroy(other.gameObject);
-                              ItemPickup.Play();
-
-                         }
-                   }
         }
+    }
 
-        public void TakeDamage(int damageAmount)
+    public void TakeDamage(int damageAmount)
+    {
+        vida -= damageAmount;
+        DanoNave.Play();
+
+        if (vida <= 0)
         {
-            vida -= damageAmount;
-            DanoNave.Play();
-
-            if (vida <= 0)
-            {
-                 Instantiate(explosion, transform.position, Quaternion.identity);
-                Destroy(gameObject);
-                Die();
-            }
-
-             healthbar.Health = vida;    
-
+            Instantiate(explosion, transform.position, Quaternion.identity);
+            Destroy(gameObject);
+            Die();
         }
-        void Die()
+
+        healthbar.Health = vida;
+
+    }
+    void Die()
+    {
+        if (gameOverPanel != null)
         {
-            if (gameOverPanel != null)
-            {
-                  gameOverPanel.SetActive(true);
+            gameOverPanel.SetActive(true);
 
-                  gameOverScreen.Setup(pontos);
+            gameOverScreen.Setup(pontos);
 
-                  Time.timeScale = 0f;
-            }
-
-             
-
+            Time.timeScale = 0f;
         }
 
-    void Shoot() 
+
+
+    }
+
+    void Shoot()
     {
 
         Instantiate(bulletPrefab, transform.position, transform.rotation);
@@ -172,6 +173,7 @@ public class SpaceShip : MonoBehaviour
 
 
 }
+
 
 
 

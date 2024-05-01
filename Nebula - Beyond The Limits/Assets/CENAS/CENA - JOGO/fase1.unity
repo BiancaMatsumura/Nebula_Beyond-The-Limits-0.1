@@ -4447,6 +4447,7 @@ GameObject:
   - component: {fileID: 1242196677}
   - component: {fileID: 1242196676}
   - component: {fileID: 1242196680}
+  - component: {fileID: 1242196681}
   m_Layer: 5
   m_Name: ---USERINTERFACE---
   m_TagString: Untagged
@@ -4560,6 +4561,21 @@ MonoBehaviour:
   vida: 10
   vidaMaxima: 50
   healthBar: {fileID: 540437294}
+--- !u!114 &1242196681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1242196675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8152b60c795a36e4ab50b7373cde03d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  escudo: 10
+  escudoMax: 50
+  shielbar: {fileID: 1489185509}
 --- !u!1 &1270646052
 GameObject:
   m_ObjectHideFlags: 0
@@ -5116,6 +5132,7 @@ GameObject:
   - component: {fileID: 1489185508}
   - component: {fileID: 1489185510}
   - component: {fileID: 1489185509}
+  - component: {fileID: 1489185511}
   m_Layer: 5
   m_Name: Foreground
   m_TagString: Untagged
@@ -5180,6 +5197,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1489185507}
   m_CullTransparentMesh: 1
+--- !u!114 &1489185511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1489185507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8152b60c795a36e4ab50b7373cde03d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  escudo: 10
+  escudoMax: 50
+  shielbar: {fileID: 1489185509}
 --- !u!1 &1494756939
 GameObject:
   m_ObjectHideFlags: 0
@@ -6041,6 +6073,7 @@ GameObject:
   - component: {fileID: 1670008613}
   - component: {fileID: 1670008612}
   - component: {fileID: 1670008614}
+  - component: {fileID: 1670008616}
   - component: {fileID: 1670008615}
   m_Layer: 0
   m_Name: ---SPAWNER---
@@ -6118,6 +6151,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b5fd9175c84f3d44989e664c5d8bec4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1670008616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1670008611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3a456587c630e24389c7127f9f876d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  range: 10
+  interval: 8
+  explosion: {fileID: 9126560832837868632}
+  enemyPrefab: {fileID: 4412860443916181234, guid: 3811022c928300a4e96e265fb59e07ce, type: 3}
+  player: {fileID: 7561386588379343564}
+  audioSource: {fileID: 432780224}
+  audioPlayer: {fileID: 964702336}
+  audioPlayer2: {fileID: 0}
+  maxEnemies: 3
 --- !u!1 &1682618054
 GameObject:
   m_ObjectHideFlags: 0
@@ -18558,6 +18612,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vida: 50
+  escudo: 50
   movementSpeed: 10
   pontos: 0
   maxPontos: 1200
