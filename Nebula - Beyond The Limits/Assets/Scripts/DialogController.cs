@@ -8,53 +8,50 @@ public class DialogController : MonoBehaviour
 {
     public GameObject dialogBox;
     public Text dialogText;
-    public float delayTime = 5f;
     public float typingSpeed = 0.1f;
 
-    private string fullText = "Take the relic before it's beyond our grasp!";
-    private string currentText = "";
+    private List<int> shownDialogues = new List<int>();
+
+    public string[] allDialogues = {
+        "Get the relic and save the Galaxy",
+        "Get the Green Gem to restore your integrity",
+       
+    };
 
     private void Start()
     {
-        StartCoroutine(TriggerDialogAfterDelay());
+        
+        TriggerDialog(0);
     }
 
-    public void ActivateDialog()
+    public void TriggerDialog(int dialogueIndex)
     {
-        dialogBox.SetActive(true);
-    }
-
-    private IEnumerator TriggerDialogAfterDelay()
-    {
-        yield return new WaitForSeconds(delayTime);
-
-        if (dialogBox != null)
+        if (dialogueIndex >= 0 && dialogueIndex < allDialogues.Length && !shownDialogues.Contains(dialogueIndex))
         {
-            StartDialog();
+            string selectedDialogue = allDialogues[dialogueIndex];
+            StartCoroutine(TypeText(selectedDialogue));
+            shownDialogues.Add(dialogueIndex); // Adiciona o índice do diálogo à lista de diálogos mostrados
         }
         else
         {
-            Debug.LogError("DialogManager não atribuído ao DialogTrigger!");
+            Debug.LogWarning("Invalid dialogue index or dialogue already shown: " + dialogueIndex);
         }
     }
 
-    private void StartDialog()
+    private IEnumerator TypeText(string fullText)
     {
         dialogBox.SetActive(true);
-        StartCoroutine(TypeText());
-    }
+        dialogText.text = "";
 
-    private IEnumerator TypeText()
-    {
         foreach (char letter in fullText)
         {
-            currentText += letter;
-            dialogText.text = currentText;
+            dialogText.text += letter;
             yield return new WaitForSeconds(typingSpeed);
         }
 
         
-        yield return new WaitForSeconds(5f); 
+        yield return new WaitForSeconds(4f);
+
         CloseDialog();
     }
 
