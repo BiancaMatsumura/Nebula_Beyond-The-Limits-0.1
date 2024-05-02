@@ -5,26 +5,27 @@ using UnityEngine;
 
 public class SpaceShip : MonoBehaviour
 {
-    [Header("Informações do Player")]
-    public int vida = 100;
-    public int escudo = 100;
+    [Header("InformaÃ§oes do Player")]
+    public int vida = 50;
+    public int escudo = 20;
     public float movementSpeed = 1f;
     public int pontos = 0;
-    public int maxPontos = 1200;
+    public int maxPontos = 1100;
     public int enemiesDestroyed = 0;
     public GameObject bulletPrefab;
     public Transform firePoint;
     public Healthbar healthbar;
+    public Shieldbar shieldbar;
     public pontos pontosScript;
 
     [Header("Audios / FX")]
     public AudioSource ItemPickup;
     public AudioSource DanoNave;
     public AudioSource Laser;
-    [SerializeField] AudioSource Explosão;
+    [SerializeField] AudioSource Explosao;
     [SerializeField] GameObject explosion;
 
-    [Header("Painéis")]
+    [Header("Paineis")]
     public GameObject gameOverPanel;
     public GameObject victoryPanel;
     [SerializeField] public GameObject PauseMenuPanel;
@@ -49,6 +50,7 @@ public class SpaceShip : MonoBehaviour
         inventory = GetComponent<playerInventory>();
         controller = GetComponent<CharacterController>();
         healthbar = FindObjectOfType<Healthbar>();
+        shieldbar = FindObjectOfType<Shieldbar>();
 
 
     }
@@ -99,7 +101,6 @@ public class SpaceShip : MonoBehaviour
             ItemCura itemCura = other.gameObject.GetComponent<ItemCura>();
             if (itemCura != null)
             {
-
                 vida += itemCura.quantidadeCura;
 
 
@@ -118,9 +119,12 @@ public class SpaceShip : MonoBehaviour
     }
 
     public void TakeDamage(int damageAmount)
+    {   
+        if(escudo == 0)
     {
         vida -= damageAmount;
         DanoNave.Play();
+        healthbar.Health = vida;
 
         if (vida <= 0)
         {
@@ -129,8 +133,13 @@ public class SpaceShip : MonoBehaviour
             Die();
         }
 
-        healthbar.Health = vida;
 
+    }   else if (escudo >= 0)
+    {   
+        escudo -= damageAmount;
+        DanoNave.Play();
+        shieldbar.escudo = escudo;
+    }
     }
     void Die()
     {
@@ -159,7 +168,7 @@ public class SpaceShip : MonoBehaviour
     public void EnemyDestroyed()
     {
         enemiesDestroyed++;
-        pontos += 150;
+        pontos += 100;
 
         pontosScript.Setup(pontos);
 

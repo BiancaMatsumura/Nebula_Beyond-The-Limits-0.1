@@ -7,12 +7,13 @@ public class EnemyController2 : MonoBehaviour
     [SerializeField] public GameObject explosion;
     public AudioSource DanoNave;
     public AudioSource Laser;
+    public GameObject ShieldModel;
 
     public int vida = 50;
 
     [Header("Movement")]
     public float moveSpeed = 3f;
-    public float moveDistance = 10f; // Distância que o inimigo vai percorrer
+    public float moveDistance = 10f; // Distï¿½ncia que o inimigo vai percorrer
 
     [Header("Laser")]
     public float gunRange = 50f;
@@ -21,7 +22,7 @@ public class EnemyController2 : MonoBehaviour
     public int laserDamage = 10; // Quantidade de dano causado pelo laser
 
     private LineRenderer laserLine;
-    private GameObject player; // Referência para o jogador
+    private GameObject player; // Referï¿½ncia para o jogador
     private Vector3 initialPosition;
     private bool movingForward = true;
 
@@ -29,7 +30,7 @@ public class EnemyController2 : MonoBehaviour
     {
         laserLine = GetComponent<LineRenderer>();
         player = GameObject.FindGameObjectWithTag("Player"); // Encontrar o jogador pelo tag
-        laserLine.enabled = false; // Desativa o laser no início
+        laserLine.enabled = false; // Desativa o laser no inï¿½cio
         initialPosition = transform.position;
     }
 
@@ -56,17 +57,17 @@ public class EnemyController2 : MonoBehaviour
     {
         if (player != null)
         {
-            Vector3 direction = (player.transform.position - transform.position).normalized; // Calcula a direção do jogador em relação à posição atual
+            Vector3 direction = (player.transform.position - transform.position).normalized; // Calcula a direï¿½ï¿½o do jogador em relaï¿½ï¿½o ï¿½ posiï¿½ï¿½o atual
             RaycastHit hit;
             if (Physics.Raycast(transform.position, direction, out hit, gunRange))
             {
-                laserLine.SetPosition(0, transform.position); // Define a posição inicial do laser como a posição do objeto atual (provavelmente a arma)
+                laserLine.SetPosition(0, transform.position); // Define a posiï¿½ï¿½o inicial do laser como a posiï¿½ï¿½o do objeto atual (provavelmente a arma)
                 if (hit.collider != null && hit.point != Vector3.zero)
                 {
                     laserLine.SetPosition(1, hit.point);
-                    if (hit.collider.CompareTag("Player")) // Verifica se o objeto atingido é o jogador
+                    if (hit.collider.CompareTag("Player")) // Verifica se o objeto atingido ï¿½ o jogador
                     {
-                        SpaceShip playerScript = hit.collider.GetComponent<SpaceShip>(); // Obtém o script do jogador
+                        SpaceShip playerScript = hit.collider.GetComponent<SpaceShip>(); // Obtï¿½m o script do jogador
                         if (playerScript != null)
                         {
                             playerScript.TakeDamage(laserDamage); // Causa dano ao jogador
@@ -101,6 +102,12 @@ public class EnemyController2 : MonoBehaviour
         }
     }
 
+    private void DropShield()
+    {
+        Vector3 position = transform.position;
+        GameObject Shield = Instantiate(ShieldModel, position, Quaternion.identity);
+    }
+
     void TakeDamage(int damageAmount)
     {
         vida -= damageAmount;
@@ -110,6 +117,7 @@ public class EnemyController2 : MonoBehaviour
         {
             Instantiate(explosion, transform.position, Quaternion.identity);
             Destroy(gameObject);
+            DropShield();
 
             if (FindObjectOfType<SpaceShip>() != null)
             {

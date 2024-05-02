@@ -17,7 +17,6 @@ public class ItemCura : MonoBehaviour
 
             if (spaceShip != null) 
             {
-                
                 spaceShip.vida += quantidadeCura;
                 
                 spaceShip.vida = Mathf.Min(spaceShip.vida, 50);
@@ -33,4 +32,5 @@ public class ItemCura : MonoBehaviour
 
         }
     }
+
 }

@@ -16,15 +16,14 @@ public class ItemEscudo : MonoBehaviour
             SpaceShip spaceShip = other.GetComponent<SpaceShip>();
 
             if (spaceShip != null) 
-            {
-                
+            {                
                 spaceShip.escudo += quantidadeEscudo;
                 
                 spaceShip.escudo = Mathf.Min(spaceShip.escudo, 50);
 
-                
-                if (spaceShip.healthbar != null)
-                    spaceShip.healthbar.Health = spaceShip.escudo;
+               
+                if (spaceShip.shieldbar != null)
+                    spaceShip.shieldbar.escudo = spaceShip.escudo;
 
 
             }

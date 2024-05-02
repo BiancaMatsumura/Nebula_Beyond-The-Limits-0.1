@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2198393592043434937}
   - component: {fileID: 1259970867417374337}
   - component: {fileID: 564247864596665481}
-  - component: {fileID: 938879009096102539}
+  - component: {fileID: 5004415917777370281}
   m_Layer: 0
   m_Name: Gem 2
   m_TagString: ItemCura
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3da6ca2f3c3c76247923ddc4bc60d133, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &938879009096102539
+--- !u!114 &5004415917777370281
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -153,7 +153,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 97233820969401137}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c757336ead2f6441bf9a7a1d60ca91b, type: 3}
+  m_Script: {fileID: 11500000, guid: f87cdc60986ee2141b857b0a3a5420f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  quantidadeCura: 5
+  quantidadeEscudo: 5
