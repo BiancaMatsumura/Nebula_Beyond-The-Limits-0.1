@@ -17,11 +17,11 @@ public class Spawner2 : MonoBehaviour
     public AudioSource audioSource;
     public AudioSource audioPlayer;
     public AudioSource audioPlayer2;
-    public int maxEnemies;
+    public int maxEnemies2;
 
     void Update()
     {
-        if (spawnedEnemiesCount < maxEnemies)
+        if (spawnedEnemiesCount < maxEnemies2)
         {
             SpawnEnemy();
         }

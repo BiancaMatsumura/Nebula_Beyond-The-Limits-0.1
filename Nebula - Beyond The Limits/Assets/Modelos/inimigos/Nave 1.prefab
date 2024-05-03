@@ -108,7 +108,7 @@ MonoBehaviour:
   damageAmount: 20
   explosion: {fileID: 0}
   DanoNave: {fileID: 0}
-  GemModel: {fileID: 97233820969401137, guid: a4304d3c5ef1f334190f1451a5785c5b, type: 3}
+  GemModel: {fileID: 97233820969401137, guid: af4f2b0e77dfb8342af8017bf67bb4da, type: 3}
 --- !u!65 &6854909556938120754
 BoxCollider:
   m_ObjectHideFlags: 0

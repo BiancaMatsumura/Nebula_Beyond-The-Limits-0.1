@@ -19,8 +19,7 @@ public class DialogController : MonoBehaviour
     };
 
     private void Start()
-    {
-        
+    {        
         TriggerDialog(0);
     }
 
@@ -30,7 +29,7 @@ public class DialogController : MonoBehaviour
         {
             string selectedDialogue = allDialogues[dialogueIndex];
             StartCoroutine(TypeText(selectedDialogue));
-            shownDialogues.Add(dialogueIndex); // Adiciona o índice do diálogo à lista de diálogos mostrados
+            shownDialogues.Add(dialogueIndex); // Adiciona o indice do dialogo a lista de dialogos mostrados
         }
         else
         {

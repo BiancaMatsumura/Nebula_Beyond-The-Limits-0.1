@@ -29,8 +29,7 @@ public class Spawner : MonoBehaviour
     {
         if(spawnedEnimiesCount <= MaxEnemies){
             canSpawn();
-        }
-       
+        }       
     }
 
     void canSpawn(){
@@ -46,5 +45,6 @@ public class Spawner : MonoBehaviour
             spawnedEnimiesCount++;
         }
     }
+
 }
 
