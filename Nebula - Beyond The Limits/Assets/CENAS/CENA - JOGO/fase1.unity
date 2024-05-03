@@ -6088,7 +6088,7 @@ MonoBehaviour:
   audioSource: {fileID: 432780224}
   audioPlayer: {fileID: 0}
   audioPlayer2: {fileID: 964702336}
-  MaxEnemies: 2
+  MaxEnemies: 6
 --- !u!4 &1670008613
 Transform:
   m_ObjectHideFlags: 0
@@ -6117,7 +6117,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 7
-  interval: 8
+  interval: 5
   explosion: {fileID: 9126560832837868632}
   enemyPrefab: {fileID: 6519313319001120943, guid: e9366495bb1eed84d8ff7451404d91cd, type: 3}
   player: {fileID: 7561386588379343564}
@@ -6138,14 +6138,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 7
-  interval: 10
+  interval: 4
   explosion: {fileID: 9126560832837868632}
   enemyPrefab: {fileID: 4412860443916181234, guid: 3811022c928300a4e96e265fb59e07ce, type: 3}
   player: {fileID: 7561386588379343564}
   audioSource: {fileID: 432780224}
   audioPlayer: {fileID: 964702336}
   audioPlayer2: {fileID: 0}
-  maxEnemies2: 0
+  maxEnemies2: 3
 --- !u!1 &1682618054
 GameObject:
   m_ObjectHideFlags: 0
