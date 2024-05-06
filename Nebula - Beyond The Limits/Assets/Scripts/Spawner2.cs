@@ -12,7 +12,8 @@ public class Spawner2 : MonoBehaviour
     private int spawnedEnemiesCount = 0;
 
     public GameObject explosion;
-    public GameObject enemyPrefab; 
+    public GameObject enemyPrefab;
+    public GameObject laserPrefab;
     public SpaceShip player;
     public AudioSource audioSource;
     public AudioSource audioPlayer;
@@ -41,7 +42,26 @@ public class Spawner2 : MonoBehaviour
             EnemyController2 enemyController = spawnedObject.GetComponent<EnemyController2>(); 
             enemyController.explosion = explosion;
             enemyController.Laser = audioSource;
-            enemyController.DanoNave = audioPlayer; 
+            enemyController.DanoNave = audioPlayer;
+            enemyController.laserPrefab = laserPrefab;
+
+            Transform laserPoint = spawnedObject.transform.Find("firepoint");
+            if (laserPoint != null)
+            {
+                
+                enemyController.laserPoint = laserPoint;
+
+                
+                LaserController enemyLaserController = laserPoint.GetComponent<LaserController>();
+                if (enemyLaserController != null)
+                {
+                    
+                    enemyLaserController.SetFirePoint(laserPoint);
+                }
+                
+            }
+           
+
             counter = 0;
             spawnedEnemiesCount++;
         }

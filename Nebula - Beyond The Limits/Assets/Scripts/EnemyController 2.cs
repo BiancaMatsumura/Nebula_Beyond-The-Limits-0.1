@@ -13,30 +13,30 @@ public class EnemyController2 : MonoBehaviour
 
     [Header("Movement")]
     public float moveSpeed = 3f;
-    public float moveDistance = 10f; // Dist�ncia que o inimigo vai percorrer
+    public float moveDistance = 10f;
 
     [Header("Laser")]
-    public float gunRange = 50f;
-    public float fireRate = 0.2f;
-    public float laserDuration = 0.05f;
-    public int laserDamage = 10; // Quantidade de dano causado pelo laser
+    public GameObject laserPrefab;
+    public Transform laserPoint;
+    private float laserLifetime = 3f;
 
-    private LineRenderer laserLine;
-    private GameObject player; // Refer�ncia para o jogador
+    private GameObject player; 
     private Vector3 initialPosition;
     private bool movingForward = true;
+    private GameObject currentLaser;
+    private float lastLaserTime;
 
     void Awake()
     {
-        laserLine = GetComponent<LineRenderer>();
-        player = GameObject.FindGameObjectWithTag("Player"); // Encontrar o jogador pelo tag
-        laserLine.enabled = false; // Desativa o laser no in�cio
+        
+        player = GameObject.FindGameObjectWithTag("Player"); 
+        
         initialPosition = transform.position;
     }
 
     void Start()
     {
-        InvokeRepeating("FireRaycast", 0, fireRate);
+        
         StartCoroutine(MoveEnemy());
     }
 
@@ -53,43 +53,33 @@ public class EnemyController2 : MonoBehaviour
         movingForward = false;
     }
 
-    void FireRaycast()
+    private void Update()
     {
-        if (player != null)
+        
+        if (currentLaser == null && Time.time - lastLaserTime >= laserLifetime)
         {
-            Vector3 direction = (player.transform.position - transform.position).normalized; // Calcula a dire��o do jogador em rela��o � posi��o atual
-            RaycastHit hit;
-            if (Physics.Raycast(transform.position, direction, out hit, gunRange))
-            {
-                laserLine.SetPosition(0, transform.position); // Define a posi��o inicial do laser como a posi��o do objeto atual (provavelmente a arma)
-                if (hit.collider != null && hit.point != Vector3.zero)
-                {
-                    laserLine.SetPosition(1, hit.point);
-                    if (hit.collider.CompareTag("Player")) // Verifica se o objeto atingido � o jogador
-                    {
-                        SpaceShip playerScript = hit.collider.GetComponent<SpaceShip>(); // Obt�m o script do jogador
-                        if (playerScript != null)
-                        {
-                            playerScript.TakeDamage(laserDamage); // Causa dano ao jogador
-                        }
-                    }
-                }
-                Laser.Play();
-            }
-            else
-            {
-                laserLine.SetPosition(0, transform.position);
-                laserLine.SetPosition(1, transform.position + direction * gunRange);
-            }
-            StartCoroutine(ShootLaser());
+            
+            currentLaser = Instantiate(laserPrefab, laserPoint.position, laserPoint.rotation);
+            currentLaser.tag = "EnemyAttack";
+
+            
+            lastLaserTime = Time.time;
+            Laser.Play();
+
+           
+            StartCoroutine(DestroyLaserAfterDelay(currentLaser, laserLifetime));
         }
     }
 
-    IEnumerator ShootLaser()
+    IEnumerator DestroyLaserAfterDelay(GameObject laser, float lifetime)
     {
-        laserLine.enabled = true;
-        yield return new WaitForSeconds(laserDuration);
-        laserLine.enabled = false;
+        yield return new WaitForSeconds(lifetime);
+
+        if (laser != null)
+        {
+            Destroy(laser);
+            
+        }
     }
 
     void OnTriggerEnter(Collider other)
@@ -118,6 +108,11 @@ public class EnemyController2 : MonoBehaviour
             Instantiate(explosion, transform.position, Quaternion.identity);
             Destroy(gameObject);
             DropShield();
+            if (currentLaser != null)
+            {
+                Destroy(currentLaser);
+            }
+
 
             if (FindObjectOfType<SpaceShip>() != null)
             {
