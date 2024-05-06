@@ -98,7 +98,7 @@ public class SpaceShip : MonoBehaviour
         else if (other.gameObject.CompareTag("EnemyAttack"))
         {
             TakeDamage(10);
-            Destroy(other.gameObject);
+            
 
         }
         else if (other.gameObject.CompareTag("ItemCura"))
