@@ -32,11 +32,11 @@ public class EnemyController2 : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player"); 
         
         initialPosition = transform.position;
+        currentLaser = null;
     }
 
     void Start()
-    {
-        
+    {        
         StartCoroutine(MoveEnemy());
     }
 
@@ -56,7 +56,7 @@ public class EnemyController2 : MonoBehaviour
     private void Update()
     {
         
-        if (currentLaser == null && Time.time - lastLaserTime >= laserLifetime)
+        if (currentLaser == null && Time.time - lastLaserTime >= laserLifetime && movingForward == false)
         {
             
             currentLaser = Instantiate(laserPrefab, laserPoint.position, laserPoint.rotation);
