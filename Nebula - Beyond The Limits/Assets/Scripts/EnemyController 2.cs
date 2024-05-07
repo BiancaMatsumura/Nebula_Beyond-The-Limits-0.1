@@ -25,6 +25,7 @@ public class EnemyController2 : MonoBehaviour
     private bool movingForward = true;
     private GameObject currentLaser;
     private float lastLaserTime;
+    private Transform playerTransform;
 
     void Awake()
     {
@@ -38,10 +39,17 @@ public class EnemyController2 : MonoBehaviour
     void Start()
     {        
         StartCoroutine(MoveEnemy());
+        
+        GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
+        if (playerObject != null)
+        {
+            playerTransform = playerObject.transform;
+        }
     }
 
     IEnumerator MoveEnemy()
     {
+       
         while (Vector3.Distance(transform.position, initialPosition + transform.forward * moveDistance) > 0.1f)
         {
             if (movingForward)
@@ -57,7 +65,11 @@ public class EnemyController2 : MonoBehaviour
     {
         
         if (currentLaser == null && Time.time - lastLaserTime >= laserLifetime && movingForward == false)
-        {
+        {         
+            if (playerTransform != null)
+            {            
+            transform.LookAt(playerTransform.position);
+            }
             
             currentLaser = Instantiate(laserPrefab, laserPoint.position, laserPoint.rotation);
             currentLaser.tag = "EnemyAttack";

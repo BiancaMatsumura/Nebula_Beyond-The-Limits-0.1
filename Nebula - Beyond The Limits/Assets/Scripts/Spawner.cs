@@ -27,7 +27,7 @@ public class Spawner : MonoBehaviour
 
     void Update()
     {
-        if(spawnedEnimiesCount <= MaxEnemies){
+        if(spawnedEnimiesCount < MaxEnemies){
             canSpawn();
         }       
     }
