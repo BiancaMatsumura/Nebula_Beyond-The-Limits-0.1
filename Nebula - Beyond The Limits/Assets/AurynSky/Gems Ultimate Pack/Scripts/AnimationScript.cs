@@ -16,7 +16,6 @@ public class AnimationScript : MonoBehaviour {
     private bool goingUp = true;
     public float floatRate;
     private float floatTimer;
-    public float speed = 0.5f;
    
     public Vector3 startScale;
     public Vector3 endScale;
@@ -25,25 +24,16 @@ public class AnimationScript : MonoBehaviour {
     public float scaleSpeed;
     public float scaleRate;
     private float scaleTimer;
-    private Transform playerTransform;
 
 	// Use this for initialization
 	void Start () {
-	GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
-        if (playerObject != null)
-        {
-            playerTransform = playerObject.transform;
-        }
+	
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
-       if (playerTransform != null)
-        {            
-            transform.LookAt(playerTransform.position);
-            transform.Translate(Vector3.forward * speed * Time.deltaTime);
-        }
+       
         
         if(isAnimated)
         {

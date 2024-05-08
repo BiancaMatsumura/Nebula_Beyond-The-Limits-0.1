@@ -143,7 +143,7 @@ MonoBehaviour:
   speed: 2
   bulletPrefab: {fileID: 283899458851093330, guid: 1478d6df2c914634a8d181292686311e, type: 3}
   firePoint: {fileID: 8410399509454878274}
-  GemModel: {fileID: 6197415147134778754, guid: 5918376a8fd5c09429640d4995901c6b, type: 3}
+  GemModel: {fileID: 97233820969401137, guid: af4f2b0e77dfb8342af8017bf67bb4da, type: 3}
   explosionPrefab: {fileID: 0}
   fireRate: 0.8
   audioPlayer: {fileID: 0}

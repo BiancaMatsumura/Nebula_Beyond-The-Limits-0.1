@@ -60,9 +60,6 @@ public class SpaceShip : MonoBehaviour
     }
 
 
-
-
-
     void Update()
     {
         Inputs();
@@ -168,10 +165,12 @@ public class SpaceShip : MonoBehaviour
 
     void Shoot()
     {
+
         Instantiate(bulletPrefab, transform.position, transform.rotation);
+
+        Debug.Log("Atirei");
+
     }
-
-
 
     public void EnemyDestroyed()
     {
