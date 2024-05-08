@@ -479,6 +479,7 @@ GameObject:
   - component: {fileID: 165299986}
   - component: {fileID: 165299988}
   - component: {fileID: 165299989}
+  - component: {fileID: 165299990}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -557,6 +558,21 @@ MonoBehaviour:
   - Get the relic and save the Galaxy
   - Get the Gems to recover your integrity
   - Congrats! Your first Kill
+--- !u!114 &165299990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 165299985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c25049fe04b6fa3489823d9536e807fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tempoTotal: 90
+  tempoAparecerPainel: 5
+  warningPanel: {fileID: 696578933}
 --- !u!1 &170785209
 GameObject:
   m_ObjectHideFlags: 0
@@ -2927,6 +2943,7 @@ GameObject:
   - component: {fileID: 696578934}
   - component: {fileID: 696578937}
   - component: {fileID: 696578936}
+  - component: {fileID: 696578938}
   m_Layer: 5
   m_Name: WarningPanel
   m_TagString: Untagged
@@ -2992,6 +3009,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 696578933}
   m_CullTransparentMesh: 1
+--- !u!95 &696578938
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 696578933}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fb1b78c79f9e4f44ba439fef53a0a5ab, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &712376239
 GameObject:
   m_ObjectHideFlags: 0
