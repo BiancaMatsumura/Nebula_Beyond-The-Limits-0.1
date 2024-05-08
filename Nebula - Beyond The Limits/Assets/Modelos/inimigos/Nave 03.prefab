@@ -193,7 +193,7 @@ MonoBehaviour:
   explosion: {fileID: 0}
   DanoNave: {fileID: 0}
   Laser: {fileID: 0}
-  ShieldModel: {fileID: 97233820969401137, guid: af4f2b0e77dfb8342af8017bf67bb4da, type: 3}
+  ShieldModel: {fileID: 7106734306680178686, guid: cb51a9790fac6c54c9304535e3ffd385, type: 3}
   vida: 50
   moveSpeed: 3
   moveDistance: 10
