@@ -13,6 +13,7 @@ public class SpaceShip : MonoBehaviour
     public int pontos = 0;
     public int maxPontos = 1100;
     public int enemiesDestroyed = 0;
+    public float spreadAngle = 15f;
     public GameObject bulletPrefab;
     public Transform firePoint;
     public Healthbar healthbar;
@@ -38,6 +39,7 @@ public class SpaceShip : MonoBehaviour
 
 
     private playerInventory inventory;
+    
 
     private CharacterController controller;
 
@@ -55,12 +57,9 @@ public class SpaceShip : MonoBehaviour
         controller = GetComponent<CharacterController>();
         healthbar = FindObjectOfType<Healthbar>();
         shieldbar = FindObjectOfType<Shieldbar>();
-       
 
+        
     }
-
-
-
 
 
     void Update()
@@ -168,9 +167,29 @@ public class SpaceShip : MonoBehaviour
 
     void Shoot()
     {
-        Instantiate(bulletPrefab, transform.position, transform.rotation);
+        int numberOfGems = inventory.NumberOfGems;
+
+        if (numberOfGems == 1) 
+        {
+            ShootTripleTriangle();
+        }
+        else
+        {
+            Instantiate(bulletPrefab, transform.position, transform.rotation);
+        }
+        
     }
 
+    public void ShootTripleTriangle()
+    {
+
+        for (int i = 0; i < 3; i++)
+        {
+            GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
+            float rotationAngle = spreadAngle * (i - 1);
+            bullet.transform.Rotate(0, rotationAngle, 0);
+        }
+    }
 
 
     public void EnemyDestroyed()
