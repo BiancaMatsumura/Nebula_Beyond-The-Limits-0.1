@@ -4,18 +4,16 @@ using UnityEngine;
 
 public class WarningPanel : MonoBehaviour
 {
-    public float tempoTotal = 10f;
-    public float tempoAparecerPainel = 5f;
-    public GameObject warningPanel;
+    public float tempoTotal;
+    public float tempoAparecerPainel;
     private bool painelAtivado = false;
+    public GameObject warningPanel;
 
 
     void Start()
     {
-        tempoAparecerPainel = tempoTotal - 5f;
-    }
 
-    
+    } 
     void Update()
     {
 
@@ -29,12 +27,13 @@ public class WarningPanel : MonoBehaviour
         }
 
        
-        if (tempoTotal <= 6f && !painelAtivado)
+        if (tempoTotal <= 31f && !painelAtivado)
         {
             
             warningPanel.SetActive(true);
            
             painelAtivado = true;
         }
+
     }
 }

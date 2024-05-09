@@ -6,15 +6,15 @@ using UnityEngine.UI;
 public class Timer : MonoBehaviour
 {
     
-    [SerializeField] float tempoLevel;
-
-
+    public float tempoLevel;
+    public GameObject VictoryBackground;
     public Text timerText;
-
+    public GameObject tempoTotal;
+    
 
     private void Start()
     {
-        
+        tempoTotal.GetComponent<WarningPanel>().tempoTotal = tempoLevel;
     }
 
     void Update()
@@ -29,10 +29,15 @@ public class Timer : MonoBehaviour
             
         }
 
-        if (tempoLevel <= 6)
+        if (tempoLevel <= 89)
         {
             timerText.color = Color.red;
             
+        }
+        if (tempoLevel == 0)
+        {
+            Time.timeScale = 0f;
+            VictoryBackground.SetActive(true);            
         }
 
         int minutes = Mathf.FloorToInt(tempoLevel / 60);

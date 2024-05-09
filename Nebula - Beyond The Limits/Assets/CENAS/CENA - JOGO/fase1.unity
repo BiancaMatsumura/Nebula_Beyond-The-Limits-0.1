@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -570,8 +570,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c25049fe04b6fa3489823d9536e807fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tempoTotal: 90
-  tempoAparecerPainel: 5
+  tempoTotal: 20
+  tempoAparecerPainel: 30
   warningPanel: {fileID: 696578933}
 --- !u!1 &170785209
 GameObject:
@@ -3906,8 +3906,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62d36a41ad324104bb15c7d3944fe466, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tempoLevel: 90
+  tempoLevel: 36
+  VictoryBackground: {fileID: 320449197}
   timerText: {fileID: 969751094}
+  tempoTotal: {fileID: 165299985}
 --- !u!114 &969751094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5352,7 +5354,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1413282422028621456, guid: beb3ea0facc54d04b968df922c3cb9c1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.044624735
+      value: -0.122
       objectReference: {fileID: 0}
     - target: {fileID: 1413282422028621456, guid: beb3ea0facc54d04b968df922c3cb9c1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5390,20 +5392,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: "Rel\xEDquia2.0"
       objectReference: {fileID: 0}
-    - target: {fileID: 1789948251061980202, guid: beb3ea0facc54d04b968df922c3cb9c1, type: 3}
-      propertyPath: m_TagString
-      value: Reliquia
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1789948251061980202, guid: beb3ea0facc54d04b968df922c3cb9c1, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1630211218}
-    - targetCorrespondingSourceObject: {fileID: 1789948251061980202, guid: beb3ea0facc54d04b968df922c3cb9c1, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1630211217}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: beb3ea0facc54d04b968df922c3cb9c1, type: 3}
 --- !u!1 &1411304455
 GameObject:
@@ -6269,44 +6261,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1622125989}
   m_CullTransparentMesh: 1
---- !u!1 &1630211216 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1789948251061980202, guid: beb3ea0facc54d04b968df922c3cb9c1, type: 3}
-  m_PrefabInstance: {fileID: 1403838799}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1630211217
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1630211216}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc4ecdef68c651840824bb85ac1af030, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!65 &1630211218
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1630211216}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.67, y: 2.87, z: 2.52}
-  m_Center: {x: -0.09, y: 1.03, z: 0.27}
 --- !u!1 &1645691896
 GameObject:
   m_ObjectHideFlags: 0
@@ -19052,6 +19006,7 @@ MonoBehaviour:
   pontos: 0
   maxPontos: 1100
   enemiesDestroyed: 0
+  spreadAngle: 15
   bulletPrefab: {fileID: 5361266936097680113, guid: afc0826bc3e412346a0adb033b355a8c, type: 3}
   firePoint: {fileID: 277375493}
   healthbar: {fileID: 1242196680}
@@ -19069,7 +19024,6 @@ MonoBehaviour:
   gameOverScreen: {fileID: 184810899}
   victoryScreen: {fileID: 320449201}
   dialogController: {fileID: 165299989}
-  spreadAngle: 15
 --- !u!143 &7561386588379343567
 CharacterController:
   m_ObjectHideFlags: 0

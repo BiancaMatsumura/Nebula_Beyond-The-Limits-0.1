@@ -142,7 +142,7 @@ MonoBehaviour:
   rotationSpeed: 1.49
   floatSpeed: 0.04
   floatRate: 0
-  speed: 0.5
+  speed: 2
   startScale: {x: 1, y: 1, z: 1}
   endScale: {x: 1, y: 1, z: 1}
   scaleSpeed: 1
