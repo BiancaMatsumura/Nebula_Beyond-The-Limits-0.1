@@ -11,6 +11,7 @@ TagManager:
   - Enemy
   - ItemCura
   - "Explos\xE3o"
+  - Reliquia
   layers:
   - Default
   - TransparentFX

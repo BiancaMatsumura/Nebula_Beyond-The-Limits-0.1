@@ -20,10 +20,10 @@ public class bulletControllerNebula : MonoBehaviour
 
             Destroy(gameObject);
 
-            Debug.Log("Colisão com inimigo");
+           
         }
 
-        Debug.Log("Colisão");
+       
     }
 
     public void OnTriggerEnter(Collider other)

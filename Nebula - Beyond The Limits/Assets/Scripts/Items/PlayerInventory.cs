@@ -19,8 +19,8 @@ public class playerInventory : MonoBehaviour
     }
 
         public void GameOver()
-    {
-        gameOverScreen.Setup(NumberOfGems);
-        pontos.Setup(NumberOfGems);
-    }
+        {
+             gameOverScreen.Setup(NumberOfGems);
+             pontos.Setup(NumberOfGems);
+        }
 }

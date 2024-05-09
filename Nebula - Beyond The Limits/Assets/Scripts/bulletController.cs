@@ -30,10 +30,10 @@ public class bulletController : MonoBehaviour
 
             Destroy(gameObject);
 
-            Debug.Log("Colisï¿½o com inimigo");
+           
         }
 
-        Debug.Log("Colisï¿½o");
+      
     }
 
     public void OnTriggerEnter(Collider other)
@@ -50,7 +50,7 @@ public class bulletController : MonoBehaviour
 
         transform.forward = direction;
 
-        Debug.Log("Direção da bala: " + transform.forward);
+       
     }
 
 
