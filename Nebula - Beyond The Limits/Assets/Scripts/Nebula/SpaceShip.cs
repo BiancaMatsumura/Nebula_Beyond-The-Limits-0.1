@@ -25,6 +25,7 @@ public class SpaceShip : MonoBehaviour
     public AudioSource ItemPickup;
     public AudioSource DanoNave;
     public AudioSource Laser;
+    public AudioSource gameOverSom;
     [SerializeField] AudioSource Explosao;
     [SerializeField] GameObject explosion;
 
@@ -155,10 +156,9 @@ public class SpaceShip : MonoBehaviour
     {
         if (gameOverPanel != null)
         {
+            gameOverSom.Play();
             gameOverPanel.SetActive(true);
-
             gameOverScreen.Setup(pontos);
-
             Time.timeScale = 0f;
         }
 

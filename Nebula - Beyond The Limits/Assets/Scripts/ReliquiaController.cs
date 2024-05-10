@@ -4,13 +4,20 @@ using UnityEngine;
 
 public class ReliquiaController : MonoBehaviour
 {
-    
+    public DialogController dialogController;
+    public AudioSource levelUpSom;
+
+    private void Start()
+    {
+           
+    }
     private void OnTriggerEnter(Collider other)
     {
 
         if (other.gameObject.CompareTag("Player"))
         {
-
+            levelUpSom.Play();
+            dialogController.TriggerDialog(2);
             Destroy(gameObject);
 
         }
