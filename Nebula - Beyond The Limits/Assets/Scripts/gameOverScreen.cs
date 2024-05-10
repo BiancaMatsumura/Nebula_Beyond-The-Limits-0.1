@@ -7,21 +7,23 @@ using UnityEngine.SceneManagement;
 public class gameOverScreen : MonoBehaviour
 {
     public Text pointsText;
+
+    public LevelLoader levelLoader;
     public void Setup(int pontos)
     {
         gameObject.SetActive(true);
         pointsText.text = pontos.ToString()+ " POINTS";
     }
 
-    public void RestartButton() 
-    {
-        Time.timeScale = 1f;                    
-        SceneManager.LoadScene("fase1");
-    }
-
-    public void MenuButton()
+    public void RestartButton(string nomeCena) 
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("menu");
+        levelLoader.Transition(nomeCena);
+    }
+
+    public void MenuButton(string nomeCena)
+    {
+        Time.timeScale = 1f;
+        levelLoader.Transition(nomeCena);
     }
 }

@@ -8,21 +8,23 @@ public class victoryScreen : MonoBehaviour
 {
     public Text pointsText;
 
+    public LevelLoader levelLoader;
+
     public void Setup(int pontos)
     {   
       
         pointsText.text = pontos.ToString() + " POINTS";
     }
 
-    public void NextStage()
+    public void NextStage(string nomeCena)
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("fase2");
+        levelLoader.Transition(nomeCena);
     }
 
-    public void MenuButton()
+    public void MenuButton(string nomeCena)
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("menu");
+        levelLoader.Transition(nomeCena);
     }
 }

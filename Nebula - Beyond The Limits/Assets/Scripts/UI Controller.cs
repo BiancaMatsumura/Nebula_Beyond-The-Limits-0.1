@@ -10,6 +10,7 @@ public class UIController : MonoBehaviour
     [Header("Painéis")]
     [SerializeField] public GameObject PauseMenuPanel;
     [SerializeField] public GameObject optionPanel;
+    public LevelLoader levelLoader;
 
     [Header("Slider Audio")]
     public AudioMixer mixer;
@@ -20,7 +21,7 @@ public class UIController : MonoBehaviour
 
     private void Start()
     {
-
+        
 
     }
 
@@ -46,7 +47,7 @@ public class UIController : MonoBehaviour
 
     public void carregaCena(string nomeCena) 
     {
-        SceneManager.LoadScene(nomeCena);
+        levelLoader.Transition(nomeCena);
         Time.timeScale = 1f;
     }
 
@@ -57,7 +58,7 @@ public class UIController : MonoBehaviour
 
     public void Restart(string nomeFase)
     {
-        SceneManager.LoadScene(nomeFase);
+        levelLoader.Transition(nomeFase);
         Time.timeScale = 1f;
     }
 

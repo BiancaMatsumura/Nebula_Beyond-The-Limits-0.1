@@ -14,6 +14,7 @@ public class Timer : MonoBehaviour
 
     public GameObject tempoTotal;
     public GameObject VictoryBackground;
+    public AudioSource victorySom;
 
 
     private void Start()
@@ -43,8 +44,9 @@ public class Timer : MonoBehaviour
         if (tempoLevel == 0)
         {
             Time.timeScale = 0f;
+            victorySom.Play();
             VictoryBackground.SetActive(true);
-           
+            
             
         }
 
