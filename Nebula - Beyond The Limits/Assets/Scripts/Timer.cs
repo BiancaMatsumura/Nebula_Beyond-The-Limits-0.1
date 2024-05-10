@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,14 +8,19 @@ public class Timer : MonoBehaviour
 {
     
     public float tempoLevel;
-    public GameObject VictoryBackground;
+    public float warningAtivar;
+
     public Text timerText;
+
     public GameObject tempoTotal;
-    
+    public GameObject VictoryBackground;
+
 
     private void Start()
     {
         tempoTotal.GetComponent<WarningPanel>().tempoTotal = tempoLevel;
+        tempoTotal.GetComponent<WarningPanel>().tempoAparecerPainel = warningAtivar;
+       
     }
 
     void Update()
@@ -29,7 +35,7 @@ public class Timer : MonoBehaviour
             
         }
 
-        if (tempoLevel <= 89)
+        if (tempoLevel <= warningAtivar)
         {
             timerText.color = Color.red;
             
@@ -37,7 +43,9 @@ public class Timer : MonoBehaviour
         if (tempoLevel == 0)
         {
             Time.timeScale = 0f;
-            VictoryBackground.SetActive(true);            
+            VictoryBackground.SetActive(true);
+           
+            
         }
 
         int minutes = Mathf.FloorToInt(tempoLevel / 60);

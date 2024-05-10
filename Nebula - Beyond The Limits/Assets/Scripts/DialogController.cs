@@ -10,6 +10,9 @@ public class DialogController : MonoBehaviour
     public Text dialogText;
     public float typingSpeed = 0.1f;
 
+    public AudioSource somDialogo;
+    public AudioSource textAudio;
+
     private List<int> shownDialogues = new List<int>();
 
     public string[] allDialogues = {
@@ -29,22 +32,22 @@ public class DialogController : MonoBehaviour
         {
             string selectedDialogue = allDialogues[dialogueIndex];
             StartCoroutine(TypeText(selectedDialogue));
-            shownDialogues.Add(dialogueIndex); // Adiciona o indice do dialogo a lista de dialogos mostrados
+            shownDialogues.Add(dialogueIndex); 
         }
-        else
-        {
-            Debug.LogWarning("Invalid dialogue index or dialogue already shown: " + dialogueIndex);
-        }
+    
     }
 
     private IEnumerator TypeText(string fullText)
     {
         dialogBox.SetActive(true);
+        somDialogo.Play();
         dialogText.text = "";
 
         foreach (char letter in fullText)
         {
+            textAudio.Play();
             dialogText.text += letter;
+
             yield return new WaitForSeconds(typingSpeed);
         }
 
