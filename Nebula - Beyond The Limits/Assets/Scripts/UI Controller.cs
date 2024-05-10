@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -11,40 +12,15 @@ public class UIController : MonoBehaviour
     [SerializeField] public GameObject optionPanel;
 
     [Header("Slider Audio")]
-    [SerializeField] private Slider soundSlider;
-    [SerializeField] private Slider musicSlider;
-    [SerializeField] private Image soundFillImage;
-    [SerializeField] private Image musicFillImage;
+    public AudioMixer mixer;
+    [SerializeField] private Slider FXVol;
+    [SerializeField] private Slider musicVol;
 
 
-
-    [Header("Listas Audio")]
-    [SerializeField] private List<AudioSource> soundAudioSources;
-    [SerializeField] private List<AudioSource> musicAudioSources;
-
-    private List<float> initialSoundVolumes = new List<float>();
-    private List<float> initialMusicVolumes = new List<float>();
 
     private void Start()
     {
-        soundSlider.value = soundSlider.maxValue;
-        musicSlider.value = musicSlider.maxValue;
 
-        if (soundAudioSources.Count > 0)
-        {
-            foreach (AudioSource soundAudioSource in soundAudioSources)
-                initialSoundVolumes.Add(soundAudioSource.volume);
-
-            soundSlider.value = initialSoundVolumes[0];
-        }
-
-        if (musicAudioSources.Count > 0)
-        {
-            foreach (AudioSource musicAudioSource in musicAudioSources)
-                initialMusicVolumes.Add(musicAudioSource.volume);
-
-            musicSlider.value = initialMusicVolumes[0];
-        }
 
     }
 
@@ -108,37 +84,15 @@ public class UIController : MonoBehaviour
 
     }
 
-
-    public void SetSoundVolume(float volume)
+    public void MusicVolChange()
     {
-        SetVolume(soundAudioSources, initialSoundVolumes, volume, soundFillImage);
+        mixer.SetFloat("MusicVol", musicVol.value);
     }
 
-    public void SetMusicVolume(float volume)
+    public void FXVolChange()
     {
-        SetVolume(musicAudioSources, initialMusicVolumes, volume, musicFillImage);
+        mixer.SetFloat("FXVol", FXVol.value);
     }
 
-    void SetVolume(List<AudioSource> audioSources, List<float> initialVolumes, float volume, Image fillImage)
-    {
-        for (int i = 0; i < audioSources.Count; i++)
-            audioSources[i].volume = volume * initialVolumes[i];
-
-        fillImage.transform.localScale = new Vector3(volume, 1f, 1f);
-    }
-
-    public void ResetVolumes()
-    {
-        ResetVolume(soundAudioSources, initialSoundVolumes, soundFillImage);
-        ResetVolume(musicAudioSources, initialMusicVolumes, musicFillImage);
-    }
-
-    void ResetVolume(List<AudioSource> audioSources, List<float> initialVolumes, Image fillImage)
-    {
-        for (int i = 0; i < audioSources.Count; i++)
-            audioSources[i].volume = initialVolumes[i];
-
-        fillImage.transform.localScale = new Vector3(initialVolumes[0], 1f, 1f);
-    }
 
 }

@@ -66,11 +66,12 @@ public class SpaceShip : MonoBehaviour
     {
         Inputs();
 
-        if (!PauseMenuPanel.activeSelf && !optionPanel.activeSelf && Input.GetButtonDown("Fire1"))
+        if (!PauseMenuPanel.activeSelf && !optionPanel.activeSelf && !victoryPanel.activeSelf && Input.GetButtonDown("Fire1"))
         {
             Laser.Play();
             Shoot();
         }
+       
     }
     void FixedUpdate()
     {
@@ -195,17 +196,12 @@ public class SpaceShip : MonoBehaviour
     public void EnemyDestroyed()
     {
         enemiesDestroyed++;
-        dialogController.TriggerDialog(2);
+        
         pontos += 100;
 
         pontosScript.Setup(pontos);
 
-        if (pontos >= maxPontos)
-        {
-            victoryPanel.SetActive(true);
-            victoryScreen.Setup(pontos);
-            Time.timeScale = 0f;
-        }
+        victoryScreen.Setup(pontos);
     }
 
 
