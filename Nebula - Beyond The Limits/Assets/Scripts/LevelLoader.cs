@@ -7,6 +7,7 @@ public class LevelLoader : MonoBehaviour
 {
     public Animator transitionAnim;
 
+
     public void Transition(string sceneName)
     {
         StartCoroutine(LoadScene(sceneName));

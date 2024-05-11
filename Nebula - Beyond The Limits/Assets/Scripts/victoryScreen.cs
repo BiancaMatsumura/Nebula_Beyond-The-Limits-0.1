@@ -10,9 +10,13 @@ public class victoryScreen : MonoBehaviour
 
     public LevelLoader levelLoader;
 
+    private void Update()
+    {
+       
+    }
     public void Setup(int pontos)
-    {   
-      
+    {
+       
         pointsText.text = pontos.ToString() + " POINTS";
     }
 

@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class CheatController : MonoBehaviour
 {
-    
+    public LevelLoader levelLoader;
     void Start()
     {
         
@@ -18,14 +18,14 @@ public class CheatController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F1))
         {
 
-            SceneManager.LoadScene("fase1");
+            levelLoader.Transition("fase1");
 
         }
 
         if (Input.GetKeyDown(KeyCode.F2))
         {
 
-            SceneManager.LoadScene("fase2");
+            levelLoader.Transition("fase2");
 
         }
 

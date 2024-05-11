@@ -532,6 +532,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e844434226ed1314c91d37b0847a7cb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelLoader: {fileID: 830093138}
 --- !u!114 &165299989
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4106,7 +4107,7 @@ MonoBehaviour:
   warningAtivar: 15
   timerText: {fileID: 969751094}
   tempoTotal: {fileID: 165299985}
-  VictoryBackground: {fileID: 320449197}
+  victoryPanel: {fileID: 320449197}
   victorySom: {fileID: 1152312277}
 --- !u!114 &969751094
 MonoBehaviour:
@@ -4746,7 +4747,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 2005447271354274779, guid: 3bcd2b733a1f1584f9ac1df5d7a0b14b, type: 2}
   m_audioClip: {fileID: 8300000, guid: e420342dc71c5ff4bb7e2c0cf4762059, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.438
+  m_Volume: 0.307
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -6260,9 +6261,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 320449201}
-        m_TargetAssemblyTypeName: victoryScreen, Assembly-CSharp
-        m_MethodName: MenuButton
+      - m_Target: {fileID: 165299986}
+        m_TargetAssemblyTypeName: UIController, Assembly-CSharp
+        m_MethodName: carregaCena
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8317,9 +8318,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 320449201}
-        m_TargetAssemblyTypeName: victoryScreen, Assembly-CSharp
-        m_MethodName: NextStage
+      - m_Target: {fileID: 165299986}
+        m_TargetAssemblyTypeName: UIController, Assembly-CSharp
+        m_MethodName: carregaCena
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

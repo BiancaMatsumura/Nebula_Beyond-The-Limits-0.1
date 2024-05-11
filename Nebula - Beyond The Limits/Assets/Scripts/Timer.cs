@@ -13,9 +13,10 @@ public class Timer : MonoBehaviour
     public Text timerText;
 
     public GameObject tempoTotal;
-    public GameObject VictoryBackground;
+    public GameObject victoryPanel;
     public AudioSource victorySom;
 
+    private bool victoryDisplayed = false;
 
     private void Start()
     {
@@ -26,14 +27,15 @@ public class Timer : MonoBehaviour
 
     void Update()
     {
-        if (tempoLevel > 0)
-        {
-            tempoLevel -= Time.deltaTime;
-        }
-        else if (tempoLevel <= 0)
+        tempoLevel -= Time.deltaTime;
+
+        if (!victoryDisplayed && tempoLevel <= 0)
         {
             tempoLevel = 0;
-            
+            Time.timeScale = 0f;
+            victorySom.Play();
+            victoryPanel.SetActive(true);
+            victoryDisplayed = true;
         }
 
         if (tempoLevel <= warningAtivar)
@@ -41,14 +43,7 @@ public class Timer : MonoBehaviour
             timerText.color = Color.red;
             
         }
-        if (tempoLevel == 0)
-        {
-            Time.timeScale = 0f;
-            victorySom.Play();
-            VictoryBackground.SetActive(true);
-            
-            
-        }
+ 
 
         int minutes = Mathf.FloorToInt(tempoLevel / 60);
         int seconds = Mathf.FloorToInt(tempoLevel % 60);
