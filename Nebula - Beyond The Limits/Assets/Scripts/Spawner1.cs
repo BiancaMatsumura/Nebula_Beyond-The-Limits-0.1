@@ -41,7 +41,6 @@ public class Spawner1 : MonoBehaviour
             EnemyController1 enemyController = spawnedObject.GetComponent<EnemyController1>(); 
             enemyController.explosion = explosion;
              
-            enemyController.DanoNave = audioPlayer; 
             counter = 0;
             spawnedEnemiesCount++;
         }
