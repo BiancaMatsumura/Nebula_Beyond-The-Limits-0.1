@@ -18,10 +18,27 @@ public class minibossController : MonoBehaviour
     int Direction = -1;
     float fEnemyX = 0;
     public GameObject sprEnemy;
+    public GameObject homingBulletPrefab;
+    public GameObject lazerPrefab;
+    private float fireChose;
+
 
 
     void Update()
     {   
+      switch(fireChose){
+        case 1:
+        TiroNormal();
+        break;
+        case 2:
+        TiroTeleguiado();
+        break;
+        case 3:
+        TiroLazer();
+        break; 
+        }
+
+      
       switch( Direction )
     {
             case -1:
@@ -66,6 +83,10 @@ public class minibossController : MonoBehaviour
 
 
     }    
+    void FixedUpdate()
+    {
+        fireChose=Random.Range(0,4);
+    }
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("PlayerAttack"))
@@ -100,6 +121,42 @@ public class minibossController : MonoBehaviour
     {
         Vector3 position = transform.position;
         GameObject Reliq = Instantiate(Reliquia, position, Quaternion.identity);
+    }
+    
+    void TiroNormal()
+    {
+        if (Time.time >= nextFireTime)
+        {
+
+            GameObject LazerPrefab = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+            bulletPrefab.tag = "EnemyAttack";
+            nextFireTime = Time.time + 1f / fireRate;
+        }
+    
+    
+    }
+
+    void TiroTeleguiado()
+    {
+         if (Time.time >= nextFireTime)
+        {
+
+            GameObject LazerPrefab = Instantiate(homingBulletPrefab, firePoint.position, firePoint.rotation);
+            homingBulletPrefab.tag = "EnemyAttack";
+            nextFireTime = Time.time + 1f / fireRate;
+        } 
+
+    }
+    
+    void TiroLazer()
+    {
+        if (Time.time >= nextFireTime)
+        {
+
+            GameObject LazerPrefab = Instantiate(lazerPrefab, firePoint.position, firePoint.rotation);
+            LazerPrefab.tag = "EnemyAttack";
+            nextFireTime = Time.time + 1f / fireRate;
+        }
     }
 
 }
