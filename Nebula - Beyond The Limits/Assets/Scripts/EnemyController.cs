@@ -56,6 +56,18 @@ public class EnemyController : MonoBehaviour
             TakeDamage(10);
 
         }
+        if (other.gameObject.CompareTag("Player"))
+        {
+            Instantiate(explosion, transform.position, Quaternion.identity);
+            Destroy(gameObject);
+            DropGem();
+
+            if (FindObjectOfType<SpaceShip>() != null)
+            {
+                FindObjectOfType<SpaceShip>().EnemyDestroyed();
+            }
+
+        }
     }
 
     void overBoundery(){
