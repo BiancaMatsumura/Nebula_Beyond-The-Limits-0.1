@@ -72,7 +72,6 @@ public class SpaceShip : MonoBehaviour
             Laser.Play();
             Shoot();
         }
-       
     }
     void FixedUpdate()
     {
@@ -99,12 +98,8 @@ public class SpaceShip : MonoBehaviour
             
 
         }
-        else if (other.gameObject.CompareTag("EnemyAttack"))
-        {
-            TakeDamage(10);
-            
 
-        }
+        
         else if (other.gameObject.CompareTag("ItemCura"))
         {
             ItemCura itemCura = other.gameObject.GetComponent<ItemCura>();
