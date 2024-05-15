@@ -104,7 +104,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vida: 100
-  speed: 2
+  speed: 3.5
   damageAmount: 20
   explosion: {fileID: 0}
   DanoNave: {fileID: 0}

@@ -195,7 +195,7 @@ MonoBehaviour:
   Laser: {fileID: 0}
   ShieldModel: {fileID: 7106734306680178686, guid: cb51a9790fac6c54c9304535e3ffd385, type: 3}
   vida: 50
-  moveSpeed: 3
+  moveSpeed: 8
   moveDistance: 10
   laserPrefab: {fileID: 5477883342126219679, guid: 534048a727307f04c97423d925eaa345, type: 3}
   laserPoint: {fileID: 9093770656684019509}

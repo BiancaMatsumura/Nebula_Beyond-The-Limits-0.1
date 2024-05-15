@@ -6,7 +6,6 @@ using UnityEngine;
 public class minibossController : MonoBehaviour
 {
     public int vida = 80;    
-    public GameObject explosion;
     public GameObject bulletPrefab;
     public Transform firePoint;
     public GameObject explosionPrefab;
@@ -20,32 +19,33 @@ public class minibossController : MonoBehaviour
     float fEnemyX = 0;
     public GameObject sprEnemy;
 
+
     void Update()
     {   
       switch( Direction )
     {
             case -1:
-                // Moving Left
+                
                 if( fEnemyX > fMinX )
                 {
-                    fEnemyX -= 0.05f;
+                    fEnemyX -= 0.025f;
                 }
                 else
                 {
-                    // Hit left boundary, change direction
+                    
                     Direction = 1;
             
                 }
                 break;
             case 1:
-                // Moving Right
+                
                 if( fEnemyX < fMaxX )
                 {
-                    fEnemyX += 0.05f;
+                    fEnemyX += 0.025f;
                 }
                 else
                 {
-                    // Hit right boundary, change direction
+                    
                     Direction = -1;
                 }
                 break;
@@ -64,6 +64,7 @@ public class minibossController : MonoBehaviour
             nextFireTime = Time.time + 1f / fireRate;
         }
 
+
     }    
     void OnTriggerEnter(Collider other)
     {
@@ -72,16 +73,19 @@ public class minibossController : MonoBehaviour
             TakeDamage(10);
         }
     }
-    void TakeDamage(int damageAmount)
+    public void TakeDamage(int damageAmount)
     {
         vida -= damageAmount;
         
 
         if (vida <= 0)
         {
-            Instantiate(explosion, transform.position, Quaternion.identity);
+            Instantiate(explosionPrefab, transform.position, Quaternion.identity);
             Destroy(gameObject);
             DropReliquia();
+
+
+
 
             if (FindObjectOfType<SpaceShip>() != null)
             {

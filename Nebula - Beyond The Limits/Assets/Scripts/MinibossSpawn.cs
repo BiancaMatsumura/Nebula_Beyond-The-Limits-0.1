@@ -7,19 +7,34 @@ public class MinibossSpawn : MonoBehaviour
     public GameObject objectToSpawn;
     public float tempoTotal;
     public float tempoSpawn; 
-    private GameObject objectToDisSpawn;
+    private bool Spawned = false;
+    public GameObject explosionPrefab;
+    public GameObject victoryPanel;
+    public AudioSource victorySom;
+    public minibossController TakeDamege;
 
     void Update()
    {
         tempoTotal -= Time.deltaTime;
         if (tempoTotal <= tempoSpawn) 
-        {
+        {   
             canSpawn();
+            Spawned = true;
         }
     }
 
     void canSpawn()
     {
-        Instantiate(objectToSpawn,transform.position,transform.rotation);
+        objectToSpawn.GetComponent<minibossController>().explosionPrefab = explosionPrefab;
+        if(Spawned == false)
+        {
+            Instantiate(objectToSpawn,transform.position,transform.rotation);
+        }
     }
-}
+    void isDead()
+    {
+    victoryPanel.SetActive(true);
+    victorySom.Play();
+    }
+}          
+            

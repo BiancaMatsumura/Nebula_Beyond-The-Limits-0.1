@@ -198,12 +198,15 @@ public class SpaceShip : MonoBehaviour
         enemiesDestroyed++;
         
         pontos += 100;
-
         pontosScript.Setup(pontos);
 
+        if(pontos == maxPontos)
+        {
+        Time.timeScale = 0f;
+        victoryPanel.SetActive(true);
         victoryScreen.Setup(pontos);
-    }
-
+        }
+}
 
 }
 
