@@ -4103,8 +4103,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62d36a41ad324104bb15c7d3944fe466, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tempoLevel: 30
-  warningAtivar: 15
+  tempoLevel: 90
+  warningAtivar: 30
   timerText: {fileID: 969751094}
   tempoTotal: {fileID: 165299985}
   victoryPanel: {fileID: 320449197}
@@ -7001,6 +7001,7 @@ GameObject:
   - component: {fileID: 1670008612}
   - component: {fileID: 1670008614}
   - component: {fileID: 1670008616}
+  - component: {fileID: 1670008617}
   m_Layer: 0
   m_Name: ---SPAWNER---
   m_TagString: Untagged
@@ -7021,14 +7022,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 7
-  interval: 5
+  interval: 4
   explosion: {fileID: 9126560832837868632}
   ObjectToSpawn: {fileID: 3668626275776234655, guid: 3d529b680b353fb4b85b59b826a0a16b, type: 3}
   player: {fileID: 7561386588379343564}
   audioSource: {fileID: 432780224}
   audioPlayer: {fileID: 0}
   audioPlayer2: {fileID: 964702336}
-  MaxEnemies: 5
+  MaxEnemies: 14
 --- !u!4 &1670008613
 Transform:
   m_ObjectHideFlags: 0
@@ -7057,14 +7058,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 7
-  interval: 2
+  interval: 6
   explosion: {fileID: 9126560832837868632}
   enemyPrefab: {fileID: 6519313319001120943, guid: e9366495bb1eed84d8ff7451404d91cd, type: 3}
   player: {fileID: 7561386588379343564}
   audioSource: {fileID: 432780224}
   audioPlayer: {fileID: 0}
   audioPlayer2: {fileID: 964702336}
-  maxEnemies: 1
+  maxEnemies: 9
 --- !u!114 &1670008616
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7078,7 +7079,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 7
-  interval: 2
+  interval: 7
   explosion: {fileID: 9126560832837868632}
   enemyPrefab: {fileID: 4412860443916181234, guid: 3811022c928300a4e96e265fb59e07ce, type: 3}
   laserPrefab: {fileID: 5477883342126219679, guid: 534048a727307f04c97423d925eaa345, type: 3}
@@ -7086,7 +7087,26 @@ MonoBehaviour:
   audioSource: {fileID: 432780224}
   audioPlayer: {fileID: 964702336}
   audioPlayer2: {fileID: 0}
-  maxEnemies2: 1
+  maxEnemies2: 7
+--- !u!114 &1670008617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1670008611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4b40f003a72cbe46b331ee742176077, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectToSpawn: {fileID: 2724899999445496636, guid: b78d490b996d3ec42867647f5fcb3c43, type: 3}
+  tempoTotal: 90
+  tempoSpawn: 30
+  explosionPrefab: {fileID: 9126560832837868632}
+  victoryPanel: {fileID: 0}
+  victorySom: {fileID: 0}
+  TakeDamege: {fileID: 0}
 --- !u!1 &1682618054
 GameObject:
   m_ObjectHideFlags: 0
@@ -19784,7 +19804,7 @@ MonoBehaviour:
   escudo: 50
   movementSpeed: 10
   pontos: 0
-  maxPontos: 1100
+  maxPontos: 3300
   enemiesDestroyed: 0
   spreadAngle: 15
   bulletPrefab: {fileID: 5361266936097680113, guid: afc0826bc3e412346a0adb033b355a8c, type: 3}
