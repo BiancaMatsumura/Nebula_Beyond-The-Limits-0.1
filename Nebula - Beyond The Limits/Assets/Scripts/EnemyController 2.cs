@@ -102,6 +102,22 @@ public class EnemyController2 : MonoBehaviour
             TakeDamage(10);
 
         }
+
+        if (other.gameObject.CompareTag("Player"))
+        {
+            Instantiate(explosion, transform.position, Quaternion.identity);
+            Destroy(gameObject);
+            DropShield();
+            if (currentLaser != null)
+            {
+                Destroy(currentLaser);
+            }
+            if (FindObjectOfType<SpaceShip>() != null)
+            {
+                FindObjectOfType<SpaceShip>().EnemyDestroyed();
+            }
+
+        }
     }
 
     private void DropShield()

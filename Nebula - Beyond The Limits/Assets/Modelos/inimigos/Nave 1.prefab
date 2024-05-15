@@ -103,7 +103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b44f3a90339c377488172101badc0a94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vida: 100
+  vida: 50
   speed: 3.5
   damageAmount: 20
   explosion: {fileID: 0}
