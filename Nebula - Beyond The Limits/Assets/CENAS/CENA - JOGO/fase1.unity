@@ -7641,7 +7641,7 @@ MonoBehaviour:
   audioSource: {fileID: 432780224}
   audioPlayer: {fileID: 0}
   audioPlayer2: {fileID: 964702336}
-  MaxEnemies: 7
+  MaxEnemies: 10
 --- !u!4 &1670008613
 Transform:
   m_ObjectHideFlags: 0
@@ -7677,7 +7677,7 @@ MonoBehaviour:
   audioSource: {fileID: 432780224}
   audioPlayer: {fileID: 0}
   audioPlayer2: {fileID: 964702336}
-  maxEnemies: 6
+  maxEnemies: 8
 --- !u!114 &1670008616
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7699,7 +7699,7 @@ MonoBehaviour:
   audioSource: {fileID: 432780224}
   audioPlayer: {fileID: 964702336}
   audioPlayer2: {fileID: 0}
-  maxEnemies2: 5
+  maxEnemies2: 7
 --- !u!114 &1670008617
 MonoBehaviour:
   m_ObjectHideFlags: 0
