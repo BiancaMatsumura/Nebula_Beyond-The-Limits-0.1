@@ -18,7 +18,7 @@ public class ReliquiaController : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             levelUpSom.Play();
-            dialogController.TriggerDialog(2);
+            
             Destroy(gameObject);
             victoryPanel.SetActive(true);
             Time.timeScale = 0f;

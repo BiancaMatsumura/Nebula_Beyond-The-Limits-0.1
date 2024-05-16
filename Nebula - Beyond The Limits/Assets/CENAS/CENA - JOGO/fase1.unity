@@ -7037,7 +7037,7 @@ GameObject:
   - component: {fileID: 1613734124}
   - component: {fileID: 1613734127}
   - component: {fileID: 1613734126}
-  - component: {fileID: 1613734125}
+  - component: {fileID: 1613734128}
   m_Layer: 5
   m_Name: Escaped Background
   m_TagString: Untagged
@@ -7069,20 +7069,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1613734125
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1613734123}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34e2916ce64023c4c87ef25d5e144803, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pointsText: {fileID: 780423468}
-  levelLoader: {fileID: 830093138}
 --- !u!114 &1613734126
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7121,6 +7107,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1613734123}
   m_CullTransparentMesh: 1
+--- !u!114 &1613734128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1613734123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3745525d56eabf45a74121f60d8da70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pointsText: {fileID: 780423468}
+  levelLoader: {fileID: 830093138}
 --- !u!1 &1622125989
 GameObject:
   m_ObjectHideFlags: 0
@@ -7641,7 +7641,7 @@ MonoBehaviour:
   audioSource: {fileID: 432780224}
   audioPlayer: {fileID: 0}
   audioPlayer2: {fileID: 964702336}
-  MaxEnemies: 5
+  MaxEnemies: 7
 --- !u!4 &1670008613
 Transform:
   m_ObjectHideFlags: 0
@@ -7677,7 +7677,7 @@ MonoBehaviour:
   audioSource: {fileID: 432780224}
   audioPlayer: {fileID: 0}
   audioPlayer2: {fileID: 964702336}
-  maxEnemies: 5
+  maxEnemies: 6
 --- !u!114 &1670008616
 MonoBehaviour:
   m_ObjectHideFlags: 0

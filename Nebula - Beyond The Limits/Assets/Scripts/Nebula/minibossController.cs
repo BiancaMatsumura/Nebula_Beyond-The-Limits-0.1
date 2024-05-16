@@ -16,7 +16,7 @@ public class minibossController : MonoBehaviour
     public AudioSource levelUpSom;
     public GameObject victoryPanel;
     public DialogController dialogController;
-    private float fireRate = 4f;
+    private float fireRate = 3f;
     private float nextFireTime = 0f;
     private float fMinX = -10f;
     private float fMaxX = 10f;

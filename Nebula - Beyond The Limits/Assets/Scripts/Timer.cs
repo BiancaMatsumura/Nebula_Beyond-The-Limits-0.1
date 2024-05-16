@@ -32,11 +32,15 @@ public class Timer : MonoBehaviour
         if (!victoryDisplayed && tempoLevel <= 0)
         {
             tempoLevel = 0;
-            Time.timeScale = 0f;
+            
             victorySom.Play();
             victoryPanel.SetActive(true);
             
             victoryDisplayed = true;
+        }
+        if (victoryDisplayed == true)
+        {
+            Time.timeScale = 0;
         }
 
         if (tempoLevel <= warningAtivar)
