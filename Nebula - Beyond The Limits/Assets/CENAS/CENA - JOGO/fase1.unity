@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1771,7 +1771,6 @@ GameObject:
   - component: {fileID: 418592049}
   - component: {fileID: 418592048}
   - component: {fileID: 418592047}
-  - component: {fileID: 418592046}
   m_Layer: 5
   m_Name: Quit
   m_TagString: Untagged
@@ -1799,24 +1798,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -66}
   m_SizeDelta: {x: 135.4822, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &418592046
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 418592044}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ccf1ce845cff79441b4d3e1d24d2d389, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PauseMenuPanel: {fileID: 0}
-  optionPanel: {fileID: 0}
-  levelLoader: {fileID: 0}
-  mixer: {fileID: 0}
-  FXVol: {fileID: 0}
-  musicVol: {fileID: 0}
 --- !u!114 &418592047
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1861,16 +1842,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3588385756338216948, guid: 64ffa311250b2fe44b29612ba52489ad, type: 3}
+      - m_Target: {fileID: 165299986}
         m_TargetAssemblyTypeName: UIController, Assembly-CSharp
-        m_MethodName: carregaCena
+        m_MethodName: CarregarCena
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: menu
+          m_StringArgument: Menu
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &418592048
@@ -2124,7 +2105,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 165299986}
         m_TargetAssemblyTypeName: UIController, Assembly-CSharp
-        m_MethodName: carregaCena
+        m_MethodName: CarregarCena
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2970,7 +2951,7 @@ GameObject:
   - component: {fileID: 635093789}
   - component: {fileID: 635093788}
   m_Layer: 5
-  m_Name: Button (Legacy)
+  m_Name: Button Config
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3548,14 +3529,14 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 165299986}
         m_TargetAssemblyTypeName: UIController, Assembly-CSharp
-        m_MethodName: carregaCena
+        m_MethodName: CarregarCena
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: menu
+          m_StringArgument: Menu
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &712778458
@@ -3742,7 +3723,6 @@ GameObject:
   - component: {fileID: 732169530}
   - component: {fileID: 732169529}
   - component: {fileID: 732169528}
-  - component: {fileID: 732169527}
   m_Layer: 5
   m_Name: Resume
   m_TagString: Untagged
@@ -3770,24 +3750,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0.0000038147, y: 91}
   m_SizeDelta: {x: 135.4822, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &732169527
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 732169525}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ccf1ce845cff79441b4d3e1d24d2d389, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PauseMenuPanel: {fileID: 0}
-  optionPanel: {fileID: 0}
-  levelLoader: {fileID: 0}
-  mixer: {fileID: 0}
-  FXVol: {fileID: 0}
-  musicVol: {fileID: 0}
 --- !u!114 &732169528
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3991,7 +3953,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 36}
+  m_AnchoredPosition: {x: 0, y: 56}
   m_SizeDelta: {x: 434.2365, y: 49.999}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &780423468
@@ -4027,7 +3989,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 0 POINTS
+  m_Text: 0 points
 --- !u!222 &780423469
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5132,9 +5094,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 184810899}
-        m_TargetAssemblyTypeName: gameOverScreen, Assembly-CSharp
-        m_MethodName: RestartButton
+      - m_Target: {fileID: 165299986}
+        m_TargetAssemblyTypeName: UIController, Assembly-CSharp
+        m_MethodName: Restart
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6678,14 +6640,14 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 165299986}
         m_TargetAssemblyTypeName: UIController, Assembly-CSharp
-        m_MethodName: carregaCena
+        m_MethodName: CarregarCena
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: menu
+          m_StringArgument: Menu
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1534149533
@@ -6809,16 +6771,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 184810899}
-        m_TargetAssemblyTypeName: gameOverScreen, Assembly-CSharp
-        m_MethodName: MenuButton
+      - m_Target: {fileID: 165299986}
+        m_TargetAssemblyTypeName: UIController, Assembly-CSharp
+        m_MethodName: CarregarCena
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: menu
+          m_StringArgument: Menu
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1557348295
@@ -7757,6 +7719,7 @@ MonoBehaviour:
   victoryPanel: {fileID: 320449197}
   victorySom: {fileID: 1152312277}
   levelUpSom: {fileID: 1371797961}
+  player: {fileID: 7561386588379343564}
   dialogController: {fileID: 165299989}
 --- !u!1 &1682618054
 GameObject:
@@ -8023,7 +7986,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.8264, y: 103.132}
+  m_AnchoredPosition: {x: -0.000016034, y: 123}
   m_SizeDelta: {x: 487.2541, y: 296.1004}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1705354425
@@ -8048,7 +8011,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 36b5e379474c80a4bb3735bea0433a0a, type: 3}
-    m_FontSize: 60
+    m_FontSize: 55
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -9139,7 +9102,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 165299986}
         m_TargetAssemblyTypeName: UIController, Assembly-CSharp
-        m_MethodName: carregaCena
+        m_MethodName: CarregarCena
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9764,7 +9727,6 @@ GameObject:
   - component: {fileID: 1958352649}
   - component: {fileID: 1958352648}
   - component: {fileID: 1958352647}
-  - component: {fileID: 1958352646}
   m_Layer: 5
   m_Name: Restart
   m_TagString: Untagged
@@ -9792,24 +9754,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0.0000038146973, y: 12}
   m_SizeDelta: {x: 135.4822, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1958352646
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1958352644}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ccf1ce845cff79441b4d3e1d24d2d389, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PauseMenuPanel: {fileID: 0}
-  optionPanel: {fileID: 0}
-  levelLoader: {fileID: 0}
-  mixer: {fileID: 0}
-  FXVol: {fileID: 0}
-  musicVol: {fileID: 0}
 --- !u!114 &1958352647
 MonoBehaviour:
   m_ObjectHideFlags: 0

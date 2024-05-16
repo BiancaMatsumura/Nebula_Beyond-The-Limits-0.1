@@ -35,6 +35,7 @@ public class Timer : MonoBehaviour
             Time.timeScale = 0f;
             victorySom.Play();
             victoryPanel.SetActive(true);
+            
             victoryDisplayed = true;
         }
 

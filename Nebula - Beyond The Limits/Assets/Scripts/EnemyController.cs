@@ -38,7 +38,7 @@ public class EnemyController : MonoBehaviour
         {
 
             GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-            bullet.tag = "EnemyAttack";
+           
             bullet.GetComponent<bulletController>().spaceShip = player;
 
 

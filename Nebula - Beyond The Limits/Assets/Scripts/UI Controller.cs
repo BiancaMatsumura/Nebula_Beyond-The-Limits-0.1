@@ -45,7 +45,7 @@ public class UIController : MonoBehaviour
 
 
 
-    public void carregaCena(string nomeCena) 
+    public void CarregarCena(string nomeCena) 
     {
         levelLoader.Transition(nomeCena);
         Time.timeScale = 1f;

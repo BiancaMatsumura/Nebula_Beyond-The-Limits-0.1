@@ -25,7 +25,7 @@ public class minibossController : MonoBehaviour
     private float fireChose = 1;
     private float switchTime = 5f;
     private float timeSinceLastSwitch = 0f;
-    private SpaceShip player;
+    public SpaceShip player;
     public GameObject sprEnemy;
 
     void Start()
@@ -80,7 +80,7 @@ public class minibossController : MonoBehaviour
         if (Time.time >= nextFireTime)
         {
             GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-            bullet.tag = "EnemyAttack";
+            bullet.GetComponent<bulletController>().spaceShip = player;
             nextFireTime = Time.time + 1f / fireRate;
         }
     }
