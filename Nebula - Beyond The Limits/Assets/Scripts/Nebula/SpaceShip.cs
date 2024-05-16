@@ -11,7 +11,7 @@ public class SpaceShip : MonoBehaviour
     public int escudo = 20;
     public float movementSpeed = 1f;
     public int pontos = 0;
-    public int maxPontos = 1100;
+ 
     public int enemiesDestroyed = 0;
     public float spreadAngle = 15f;
     public GameObject bulletPrefab;
@@ -101,7 +101,7 @@ public class SpaceShip : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("EnemyAttack"))
         {
-            TakeDamage(10);
+            TakeDamage(1);
             
 
         }
@@ -200,8 +200,8 @@ public class SpaceShip : MonoBehaviour
         pontos += 100;
         pontosScript.Setup(pontos);
         victoryScreen.Setup(pontos);
-   
-}
+        
+    }
 
 }
 

@@ -44,6 +44,7 @@ public class Spawner2 : MonoBehaviour
             enemyController.Laser = audioSource;
             enemyController.DanoNave = audioPlayer;
             enemyController.laserPrefab = laserPrefab;
+            enemyController.spaceShip = player;
 
             Transform laserPoint = spawnedObject.transform.Find("firepoint");
             if (laserPoint != null)

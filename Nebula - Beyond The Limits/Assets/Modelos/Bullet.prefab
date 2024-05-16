@@ -119,4 +119,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  dano: 1
+  dano: 5
+  spaceShip: {fileID: 0}

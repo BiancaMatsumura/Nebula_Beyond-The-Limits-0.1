@@ -7,6 +7,7 @@ public class bulletController : MonoBehaviour
     public float speed = 10f;
     public int dano = 10;
 
+    public SpaceShip spaceShip;
 
     private void Start()
     {
@@ -23,24 +24,13 @@ public class bulletController : MonoBehaviour
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
     }
 
-    void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-
-            Destroy(gameObject);
-
-           
-        }
-
-      
-    }
 
     public void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
             Destroy(gameObject);
+            spaceShip.TakeDamage(dano);
         }
     }
 

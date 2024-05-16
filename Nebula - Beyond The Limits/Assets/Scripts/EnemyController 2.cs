@@ -8,6 +8,7 @@ public class EnemyController2 : MonoBehaviour
     public AudioSource DanoNave;
     public AudioSource Laser;
     public GameObject ShieldModel;
+    public SpaceShip spaceShip;
 
     public int vida = 50;
 
@@ -72,9 +73,11 @@ public class EnemyController2 : MonoBehaviour
             }
             
             currentLaser = Instantiate(laserPrefab, laserPoint.position, laserPoint.rotation);
-            currentLaser.tag = "EnemyAttack";
-
             
+            currentLaser.GetComponent<LaserController>().player = spaceShip;
+
+
+
             lastLaserTime = Time.time;
             Laser.Play();
 
@@ -108,6 +111,7 @@ public class EnemyController2 : MonoBehaviour
             Instantiate(explosion, transform.position, Quaternion.identity);
             Destroy(gameObject);
             DropShield();
+            spaceShip.TakeDamage(10);
             if (currentLaser != null)
             {
                 Destroy(currentLaser);

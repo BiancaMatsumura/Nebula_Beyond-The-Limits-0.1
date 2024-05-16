@@ -39,6 +39,7 @@ public class EnemyController : MonoBehaviour
 
             GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
             bullet.tag = "EnemyAttack";
+            bullet.GetComponent<bulletController>().spaceShip = player;
 
 
             nextFireTime = Time.time + 1f / fireRate;
@@ -61,6 +62,7 @@ public class EnemyController : MonoBehaviour
             Instantiate(explosion, transform.position, Quaternion.identity);
             Destroy(gameObject);
             DropGem();
+            player.TakeDamage(10);
 
             if (FindObjectOfType<SpaceShip>() != null)
             {

@@ -11,7 +11,9 @@ public class MinibossSpawn : MonoBehaviour
     public GameObject explosionPrefab;
     public GameObject victoryPanel;
     public AudioSource victorySom;
-    public minibossController TakeDamege;
+    public AudioSource levelUpSom;
+
+    public DialogController dialogController;
 
     void Update()
    {
@@ -26,6 +28,10 @@ public class MinibossSpawn : MonoBehaviour
     void canSpawn()
     {
         objectToSpawn.GetComponent<minibossController>().explosionPrefab = explosionPrefab;
+        objectToSpawn.GetComponent<minibossController>().levelUpSom = levelUpSom;
+        objectToSpawn.GetComponent<minibossController>().victoryPanel = victoryPanel;
+        objectToSpawn.GetComponent<minibossController>().dialogController = dialogController;
+
         if(Spawned == false)
         {
             Instantiate(objectToSpawn,transform.position,transform.rotation);
@@ -33,8 +39,8 @@ public class MinibossSpawn : MonoBehaviour
     }
     void isDead()
     {
-    victoryPanel.SetActive(true);
-    victorySom.Play();
+        victoryPanel.SetActive(true);
+        victorySom.Play();
     }
 }          
             

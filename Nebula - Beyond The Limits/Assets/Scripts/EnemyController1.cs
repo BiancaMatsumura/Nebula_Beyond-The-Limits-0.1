@@ -9,7 +9,7 @@ public class EnemyController1 : MonoBehaviour
 
     public int vida = 10;
     public float speed = 5f;
-    public int damageAmount = 10;
+    public int dano = 10;
 
     [SerializeField] public GameObject explosion;
 
@@ -46,7 +46,7 @@ public class EnemyController1 : MonoBehaviour
 
             if (player != null)
             {
-                player.TakeDamage(damageAmount);
+                player.TakeDamage(dano);
             }
 
             if (explosion != null)

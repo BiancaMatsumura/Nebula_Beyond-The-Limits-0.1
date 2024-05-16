@@ -21,12 +21,15 @@ public class minibossController : MonoBehaviour
     public GameObject homingBulletPrefab;
     public GameObject lazerPrefab;
     private float fireChose;
-
+    public AudioSource levelUpSom;
+    public GameObject victoryPanel;
+    public DialogController dialogController;
 
 
     void Update()
     {   
-      switch(fireChose){
+      switch(fireChose)
+      {
         case 1:
         TiroNormal();
         break;
@@ -36,11 +39,11 @@ public class minibossController : MonoBehaviour
         case 3:
         TiroLazer();
         break; 
-        }
+      }
 
       
       switch( Direction )
-    {
+      {
             case -1:
                 
                 if( fEnemyX > fMinX )
@@ -66,7 +69,7 @@ public class minibossController : MonoBehaviour
                     Direction = -1;
                 }
                 break;
-        }
+      }
  
         sprEnemy.transform.localPosition = new Vector3( fEnemyX , 0.0f , 20.0f );
         
@@ -121,6 +124,9 @@ public class minibossController : MonoBehaviour
     {
         Vector3 position = transform.position;
         GameObject Reliq = Instantiate(Reliquia, position, Quaternion.identity);
+        Reliq.GetComponent<ReliquiaController>().dialogController = dialogController;
+        Reliq.GetComponent<ReliquiaController>().levelUpSom = levelUpSom;
+        Reliq.GetComponent<ReliquiaController>().victoryPanel = victoryPanel;
     }
     
     void TiroNormal()
@@ -139,12 +145,12 @@ public class minibossController : MonoBehaviour
     void TiroTeleguiado()
     {
          if (Time.time >= nextFireTime)
-        {
+         {
 
             GameObject LazerPrefab = Instantiate(homingBulletPrefab, firePoint.position, firePoint.rotation);
             homingBulletPrefab.tag = "EnemyAttack";
             nextFireTime = Time.time + 1f / fireRate;
-        } 
+         } 
 
     }
     

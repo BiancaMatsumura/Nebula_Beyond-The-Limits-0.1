@@ -5,6 +5,8 @@ using UnityEngine;
 public class LaserController : MonoBehaviour
 {
     public float destructionDelay = 1.0f;
+    public int dano = 5;
+    public SpaceShip player;
     private Animator laserAnimation;
     private Transform laserpoint;
 
@@ -35,8 +37,8 @@ public class LaserController : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
 
-          Destroy(gameObject, destructionDelay);
-
+            Destroy(gameObject, destructionDelay);
+            player.TakeDamage(dano);
         }
 
     }
