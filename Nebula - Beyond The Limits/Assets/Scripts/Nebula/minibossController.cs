@@ -5,102 +5,117 @@ using UnityEngine;
 
 public class minibossController : MonoBehaviour
 {
-    public int vida = 80;    
+
+    public int vida = 80;
     public GameObject bulletPrefab;
     public Transform firePoint;
     public GameObject explosionPrefab;
     public GameObject Reliquia;
-    private float fireRate = 4f;
-    private float nextFireTime = 0f;
-    public SpaceShip player;
-    private float fMinX = -10f;
-    private float fMaxX = 10f;
-    int Direction = -1;
-    float fEnemyX = 0;
-    public GameObject sprEnemy;
     public GameObject homingBulletPrefab;
     public GameObject lazerPrefab;
-    private float fireChose;
     public AudioSource levelUpSom;
     public GameObject victoryPanel;
     public DialogController dialogController;
+    private float fireRate = 4f;
+    private float nextFireTime = 0f;
+    private float fMinX = -10f;
+    private float fMaxX = 10f;
+    private float fEnemyX = 0;
+    private int Direction = -1;
+    private float fireChose = 1;
+    private float switchTime = 5f;
+    private float timeSinceLastSwitch = 0f;
+    private SpaceShip player;
+    public GameObject sprEnemy;
 
+    void Start()
+    {
+        player = FindObjectOfType<SpaceShip>();
+    }
 
     void Update()
-    {   
-      switch(fireChose)
-      {
-        case 1:
-        TiroNormal();
-        break;
-        case 2:
-        TiroTeleguiado();
-        break;
-        case 3:
-        TiroLazer();
-        break; 
-      }
+    {
+        timeSinceLastSwitch += Time.deltaTime;
 
-      
-      switch( Direction )
-      {
-            case -1:
-                
-                if( fEnemyX > fMinX )
-                {
-                    fEnemyX -= 0.025f;
-                }
-                else
-                {
-                    
-                    Direction = 1;
-            
-                }
-                break;
-            case 1:
-                
-                if( fEnemyX < fMaxX )
-                {
-                    fEnemyX += 0.025f;
-                }
-                else
-                {
-                    
-                    Direction = -1;
-                }
-                break;
-      }
- 
-        sprEnemy.transform.localPosition = new Vector3( fEnemyX , 0.0f , 20.0f );
-        
-                
-        if (Time.time >= nextFireTime)
+        if (timeSinceLastSwitch >= switchTime)
         {
-
-            GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-            bullet.tag = "EnemyAttack";
-
-
-            nextFireTime = Time.time + 1f / fireRate;
+            fireChose = Random.Range(1, 4);
+            timeSinceLastSwitch = 0f;
         }
 
+        switch (fireChose)
+        {
+            case 1:
+                TiroNormal();
+                break;
+            case 2:
+                TiroTeleguiado();
+                break;
+            case 3:
+                TiroLazer();
+                break;
+        }
 
-    }    
-    void FixedUpdate()
-    {
-        fireChose=Random.Range(0,4);
+        switch (Direction)
+        {
+            case -1:
+                if (fEnemyX > fMinX)
+                    fEnemyX -= 0.025f;
+                else
+                    Direction = 1;
+                break;
+            case 1:
+                if (fEnemyX < fMaxX)
+                    fEnemyX += 0.025f;
+                else
+                    Direction = -1;
+                break;
+        }
+
+        sprEnemy.transform.localPosition = new Vector3(fEnemyX, 0.0f, 20.0f);
     }
+
+    void TiroNormal()
+    {
+        if (Time.time >= nextFireTime)
+        {
+            GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+            bullet.tag = "EnemyAttack";
+            nextFireTime = Time.time + 1f / fireRate;
+        }
+    }
+
+    void TiroTeleguiado()
+    {
+        if (Time.time >= nextFireTime)
+        {
+            GameObject homingBullet = Instantiate(homingBulletPrefab, firePoint.position, firePoint.rotation);
+            homingBullet.tag = "EnemyAttack";
+            nextFireTime = Time.time + 1f / fireRate;
+        }
+    }
+
+    void TiroLazer()
+    {
+        if (Time.time >= nextFireTime)
+        {
+            GameObject lazer = Instantiate(lazerPrefab, firePoint.position, firePoint.rotation);
+            lazer.tag = "EnemyAttack";
+            nextFireTime = Time.time + 1f / fireRate;
+        }
+    }
+
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("PlayerAttack"))
-        {           
+        {
             TakeDamage(10);
         }
     }
+
     public void TakeDamage(int damageAmount)
     {
         vida -= damageAmount;
-        
 
         if (vida <= 0)
         {
@@ -108,16 +123,11 @@ public class minibossController : MonoBehaviour
             Destroy(gameObject);
             DropReliquia();
 
-
-
-
-            if (FindObjectOfType<SpaceShip>() != null)
+            if (player != null)
             {
-                FindObjectOfType<SpaceShip>().EnemyDestroyed();
+                player.EnemyDestroyed();
             }
-
         }
-
     }
 
     void DropReliquia()
@@ -128,41 +138,5 @@ public class minibossController : MonoBehaviour
         Reliq.GetComponent<ReliquiaController>().levelUpSom = levelUpSom;
         Reliq.GetComponent<ReliquiaController>().victoryPanel = victoryPanel;
     }
-    
-    void TiroNormal()
-    {
-        if (Time.time >= nextFireTime)
-        {
-
-            GameObject LazerPrefab = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-            bulletPrefab.tag = "EnemyAttack";
-            nextFireTime = Time.time + 1f / fireRate;
-        }
-    
-    
-    }
-
-    void TiroTeleguiado()
-    {
-         if (Time.time >= nextFireTime)
-         {
-
-            GameObject LazerPrefab = Instantiate(homingBulletPrefab, firePoint.position, firePoint.rotation);
-            homingBulletPrefab.tag = "EnemyAttack";
-            nextFireTime = Time.time + 1f / fireRate;
-         } 
-
-    }
-    
-    void TiroLazer()
-    {
-        if (Time.time >= nextFireTime)
-        {
-
-            GameObject LazerPrefab = Instantiate(lazerPrefab, firePoint.position, firePoint.rotation);
-            LazerPrefab.tag = "EnemyAttack";
-            nextFireTime = Time.time + 1f / fireRate;
-        }
-    }
-
 }
+

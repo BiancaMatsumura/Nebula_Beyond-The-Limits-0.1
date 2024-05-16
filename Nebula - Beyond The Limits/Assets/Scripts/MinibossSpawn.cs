@@ -37,10 +37,5 @@ public class MinibossSpawn : MonoBehaviour
             Instantiate(objectToSpawn,transform.position,transform.rotation);
         }
     }
-    void isDead()
-    {
-        victoryPanel.SetActive(true);
-        victorySom.Play();
-    }
 }          
             
