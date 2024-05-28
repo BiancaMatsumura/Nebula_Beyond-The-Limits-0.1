@@ -7,6 +7,7 @@ public class ReliquiaController : MonoBehaviour
     public DialogController dialogController;
     public AudioSource levelUpSom;
     public GameObject victoryPanel;
+
     private void Start()
     {
        

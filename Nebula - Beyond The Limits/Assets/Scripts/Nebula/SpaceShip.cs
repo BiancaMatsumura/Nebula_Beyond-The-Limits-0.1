@@ -18,7 +18,6 @@ public class SpaceShip : MonoBehaviour
     public Transform firePoint;
     public Healthbar healthbar;
     public Shieldbar shieldbar;
-    public pontos pontosScript;
 
 
     [Header("Audios / FX")]
@@ -30,6 +29,7 @@ public class SpaceShip : MonoBehaviour
     [SerializeField] GameObject explosion;
 
     [Header("Paineis")]
+    public Text pointsText;
     public GameObject gameOverPanel;
     public GameObject victoryPanel;
     [SerializeField] public GameObject PauseMenuPanel;
@@ -58,7 +58,7 @@ public class SpaceShip : MonoBehaviour
         controller = GetComponent<CharacterController>();
         healthbar = FindObjectOfType<Healthbar>();
         shieldbar = FindObjectOfType<Shieldbar>();
-
+        pontos = 000;
         
     }
 
@@ -72,7 +72,9 @@ public class SpaceShip : MonoBehaviour
             Laser.Play();
             Shoot();
         }
-       
+
+        pointsText.text = pontos.ToString() + " POINTS";
+
     }
     void FixedUpdate()
     {
@@ -158,7 +160,7 @@ public class SpaceShip : MonoBehaviour
         {
             gameOverSom.Play();
             gameOverPanel.SetActive(true);
-            gameOverScreen.Setup(pontos);
+            
             Time.timeScale = 0f;
         }
 
@@ -198,9 +200,7 @@ public class SpaceShip : MonoBehaviour
         enemiesDestroyed++;
         
         pontos += 100;
-        pontosScript.Setup(pontos);
-        victoryScreen.Setup(pontos);
-        
+  
     }
 
 }

@@ -28,6 +28,11 @@ public class CheatController : MonoBehaviour
             levelLoader.Transition("fase2");
 
         }
+        if (Input.GetKeyDown(KeyCode.F3))
+        {
 
+            levelLoader.Transition("fase3");
+
+        }
     }
 }

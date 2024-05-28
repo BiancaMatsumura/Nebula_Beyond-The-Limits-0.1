@@ -7,23 +7,16 @@ using UnityEngine.SceneManagement;
 public class gameOverScreen : MonoBehaviour
 {
     public Text pointsText;
-
+    public SpaceShip player;
+    public int pontos;
     public LevelLoader levelLoader;
-    public void Setup(int pontos)
+
+
+    private void Update()
     {
-        gameObject.SetActive(true);
-        pointsText.text = pontos.ToString()+ " POINTS";
+        pontos = player.pontos;
+        pointsText.text = pontos.ToString() + " POINTS";
     }
 
-    public void RestartButton(string nomeCena) 
-    {
-        Time.timeScale = 1f;
-        levelLoader.Transition(nomeCena);
-    }
 
-    public void MenuButton(string nomeCena)
-    {
-        Time.timeScale = 1f;
-        levelLoader.Transition(nomeCena);
-    }
 }
