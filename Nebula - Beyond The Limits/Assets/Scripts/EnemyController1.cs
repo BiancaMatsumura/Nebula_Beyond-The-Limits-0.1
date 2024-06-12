@@ -66,9 +66,17 @@ public class EnemyController1 : MonoBehaviour
             TakeDamage(10);
         }
 
+        if (other.gameObject.CompareTag("Lazer"))
+        {
+            
+            TakeDamage(300);
+        }
+
+
+
     }
 
-    void TakeDamage(int damageAmount)
+    public void TakeDamage(int damageAmount)
     {
         vida -= damageAmount;
 

@@ -12,6 +12,7 @@ TagManager:
   - ItemCura
   - "Explos\xE3o"
   - Reliquia
+  - Lazer
   layers:
   - Default
   - TransparentFX

@@ -68,11 +68,22 @@ public class EnemyController : MonoBehaviour
             {
                 FindObjectOfType<SpaceShip>().EnemyDestroyed();
             }
-
+            
         }
+        
+        if (other.gameObject.CompareTag("Lazer"))
+        {
+             audioPlayer2.Play();
+            TakeDamage(300);
+        }
+    
+    
+    
+    
     }
 
-    void overBoundery(){
+    void overBoundery()
+    {
 
         player.TakeDamage(10);
         Destroy(gameObject);
@@ -84,7 +95,7 @@ public class EnemyController : MonoBehaviour
         GameObject Gem = Instantiate(GemModel, position, Quaternion.identity);
     }
 
-    void TakeDamage(int damageAmount)
+     public void TakeDamage(int damageAmount)
     {
         vida -= damageAmount;
         

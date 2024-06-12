@@ -99,6 +99,12 @@ public class EnemyController2 : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject.CompareTag("Lazer"))
+            {
+                TakeDamage(300);
+                vida=0;
+            }
+        
         if (other.gameObject.CompareTag("PlayerAttack"))
         {
             DanoNave.Play();
@@ -120,7 +126,7 @@ public class EnemyController2 : MonoBehaviour
             {
                 FindObjectOfType<SpaceShip>().EnemyDestroyed();
             }
-
+            
         }
     }
 
@@ -130,7 +136,7 @@ public class EnemyController2 : MonoBehaviour
         GameObject Shield = Instantiate(ShieldModel, position, Quaternion.identity);
     }
 
-    void TakeDamage(int damageAmount)
+    public void TakeDamage(int damageAmount)
     {
         vida -= damageAmount;
 

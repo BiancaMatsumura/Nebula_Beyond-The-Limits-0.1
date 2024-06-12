@@ -11,10 +11,12 @@ public class SpaceShip : MonoBehaviour
     public int escudo = 20;
     public float movementSpeed = 1f;
     public int pontos = 0;
+    
  
     public int enemiesDestroyed = 0;
     public float spreadAngle = 15f;
     public GameObject bulletPrefab;
+    public GameObject FeixeL;
     public Transform firePoint;
     public Healthbar healthbar;
     public Shieldbar shieldbar;
@@ -71,6 +73,19 @@ public class SpaceShip : MonoBehaviour
         {
             Laser.Play();
             Shoot();
+        }
+        
+            
+         
+         if (!PauseMenuPanel.activeSelf && !optionPanel.activeSelf && !victoryPanel.activeSelf && Input.GetButtonDown("Fire2"))
+        {   
+            int numberOfGems = inventory.NumberOfGems;
+            if  (numberOfGems == 2)
+            {
+                Laser.Play();
+                Invoke("FeixeLAZER",3);
+            }
+          
         }
 
         pointsText.text = pontos.ToString() + " POINTS";
@@ -172,7 +187,7 @@ public class SpaceShip : MonoBehaviour
     {
         int numberOfGems = inventory.NumberOfGems;
 
-        if (numberOfGems == 1) 
+        if (numberOfGems >= 1) 
         {
             ShootTripleTriangle();
         }
@@ -202,7 +217,12 @@ public class SpaceShip : MonoBehaviour
         pontos += 100;
   
     }
+    
+    public void FeixeLAZER()
+    {
+        Instantiate(FeixeL, transform.position, transform.rotation);
 
+    }
 }
 
 
