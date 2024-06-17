@@ -5,17 +5,27 @@ using UnityEngine.Events;
 
 public class playerInventory : MonoBehaviour 
 {
-    public int NumberOfGems { get; private set; }
+    public int NumberOfGems  { get; private set; } = 0;
     public gameOverScreen gameOverScreen;
 
     public pontos pontos;
 
     public UnityEvent<playerInventory> OnGemCollected;
-
-    public void GemCollected() 
+    
+    void Update()
     {
+        if(NumberOfGems != 0)
+        {
+        PlayerPrefs.SetInt("ReliquiaN",NumberOfGems);
+        PlayerPrefs.Save();
+        }
+    }
+    public void GemCollected() 
+    {      
         NumberOfGems++;
         OnGemCollected.Invoke(this);
+        
+        
     }
 
         public void GameOver()

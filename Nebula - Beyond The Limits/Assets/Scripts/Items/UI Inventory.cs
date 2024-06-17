@@ -7,16 +7,23 @@ public class UIInventory : MonoBehaviour
 {
 
     private TextMeshProUGUI GemCounter;
+    private int numeroReliquia;
 
 
+    
     void Start()
     {
         GemCounter = GetComponent<TextMeshProUGUI>();
     }
 
-    public void UpdateGemCounter(playerInventory playerInventory)
-    {
-        GemCounter.text = playerInventory.NumberOfGems.ToString();
+   void Update()
+    {       
+        if (PlayerPrefs.HasKey("ReliquiaN"))
+        {
+            numeroReliquia = PlayerPrefs.GetInt("ReliquiaN");
+        }
+        GemCounter.text = numeroReliquia.ToString();
+        
     }
 
 

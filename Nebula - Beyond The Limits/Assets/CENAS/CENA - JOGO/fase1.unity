@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -20593,6 +20593,7 @@ MonoBehaviour:
   enemiesDestroyed: 0
   spreadAngle: 15
   bulletPrefab: {fileID: 5361266936097680113, guid: afc0826bc3e412346a0adb033b355a8c, type: 3}
+  FeixeL: {fileID: 5477883342126219679, guid: 369f77dcf2f5b73458b9c61cb6e45ab5, type: 3}
   firePoint: {fileID: 277375493}
   healthbar: {fileID: 1242196680}
   shieldbar: {fileID: 1242196681}

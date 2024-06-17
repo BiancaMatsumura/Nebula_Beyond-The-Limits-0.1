@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class SpaceShip : MonoBehaviour
@@ -51,16 +53,30 @@ public class SpaceShip : MonoBehaviour
 
     private float horizontal;
 
-    private float vertical;
+    private float vertical; 
+    private int numeroReliquia;
+     private int cenaAtiva;
 
-
+    
     void Start()
     {
         inventory = GetComponent<playerInventory>();
         controller = GetComponent<CharacterController>();
         healthbar = FindObjectOfType<Healthbar>();
         shieldbar = FindObjectOfType<Shieldbar>();
-        pontos = 000;
+        pontos = 000;  
+        
+        int cenaAtiva = SceneManager.GetActiveScene().buildIndex;
+         if (cenaAtiva <=3)
+        {
+            PlayerPrefs.DeleteKey("ReliquiaN");
+        }
+
+         if(PlayerPrefs.HasKey("ReliquiaN"))
+        {
+            numeroReliquia = PlayerPrefs.GetInt("ReliquiaN");       
+        }
+        
         
     }
 
@@ -79,17 +95,22 @@ public class SpaceShip : MonoBehaviour
          
          if (!PauseMenuPanel.activeSelf && !optionPanel.activeSelf && !victoryPanel.activeSelf && Input.GetButtonDown("Fire2"))
         {   
-            int numberOfGems = inventory.NumberOfGems;
-            if  (numberOfGems == 2)
+            if  (numeroReliquia == 2)
             {
                 Laser.Play();
-                Invoke("FeixeLAZER",3);
+                FeixeLAZER();
             }
           
         }
 
         pointsText.text = pontos.ToString() + " POINTS";
-
+        
+        // Puxa a variavel do playerInventory (que foi salva)  
+         if(PlayerPrefs.HasKey("ReliquiaN"))
+        {
+            numeroReliquia = PlayerPrefs.GetInt("ReliquiaN");
+        }
+    
     }
     void FixedUpdate()
     {
@@ -175,6 +196,9 @@ public class SpaceShip : MonoBehaviour
         {
             gameOverSom.Play();
             gameOverPanel.SetActive(true);
+            //apaga a informação da key Reliquia
+            PlayerPrefs.DeleteKey("ReliquiaN");
+
             
             Time.timeScale = 0f;
         }
@@ -185,9 +209,9 @@ public class SpaceShip : MonoBehaviour
 
     void Shoot()
     {
-        int numberOfGems = inventory.NumberOfGems;
 
-        if (numberOfGems >= 1) 
+
+        if (numeroReliquia >= 1) 
         {
             ShootTripleTriangle();
         }
