@@ -1,29 +1,36 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.Dependencies.Sqlite;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class DialogController : MonoBehaviour
-{
+{   
+    private int parar = 1;
     public GameObject dialogBox;
     public Text dialogText;
     public float typingSpeed = 0.1f;
 
     public AudioSource somDialogo;
     public AudioSource textAudio;
+    private int ReliquiaTutorial;
 
     private List<int> shownDialogues = new List<int>();
 
     public string[] allDialogues = {
-        "Get the relic and save the Galaxy",
+        "Get the relic and save the Galaxy", 
         "Get the Green Gem to restore your integrity",
        
+
+
     };
 
     private void Start()
     {        
-        TriggerDialog(0);
+        TriggerDialog(0); 
+       
+       
     }
 
     public void TriggerDialog(int dialogueIndex)
@@ -32,7 +39,11 @@ public class DialogController : MonoBehaviour
         {
             string selectedDialogue = allDialogues[dialogueIndex];
             StartCoroutine(TypeText(selectedDialogue));
-            shownDialogues.Add(dialogueIndex); 
+
+            if(dialogueIndex < 2)
+            {
+                shownDialogues.Add(dialogueIndex); 
+            }
         }
     
     }
@@ -57,6 +68,15 @@ public class DialogController : MonoBehaviour
         CloseDialog();
     }
 
+    void Update()
+    {
+        ReliquiaTutorial = PlayerPrefs.GetInt("ReliquiaN");
+        if(ReliquiaTutorial == 2 && parar == 1)
+        {
+            TriggerDialog(2);
+            parar++;
+        }
+    }
     public void CloseDialog()
     {
         dialogBox.SetActive(false);

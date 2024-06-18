@@ -687,7 +687,7 @@ MonoBehaviour:
   allDialogues:
   - Get the relic and save the Galaxy
   - Get the Gems to recover your integrity
-  - That's your first relic! Congratulation!
+  - Press the right mouse button for discorver your new power!!
 --- !u!114 &165299990
 MonoBehaviour:
   m_ObjectHideFlags: 0

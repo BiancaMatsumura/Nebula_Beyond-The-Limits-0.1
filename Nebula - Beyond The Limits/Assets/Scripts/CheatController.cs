@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class CheatController : MonoBehaviour
-{
+{      
+    private int GemCheat;
     public LevelLoader levelLoader;
     void Start()
     {
@@ -33,6 +34,12 @@ public class CheatController : MonoBehaviour
 
             levelLoader.Transition("fase3");
 
+        }
+        if(Input.GetKeyDown(KeyCode.F4))
+        {   
+            GemCheat++;
+             PlayerPrefs.SetInt("ReliquiaN",GemCheat);
+             PlayerPrefs.Save();
         }
     }
 }
