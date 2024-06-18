@@ -40,6 +40,18 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: f0ab4a0d7149dd049af31d3279fe34d3, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f0ab4a0d7149dd049af31d3279fe34d3, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f0ab4a0d7149dd049af31d3279fe34d3, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f0ab4a0d7149dd049af31d3279fe34d3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.6631327
       objectReference: {fileID: 0}
@@ -134,10 +146,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e0e96bfa01c9984498f25773b100209, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vida: 250
+  vida: 800
   bulletPrefab: {fileID: 283899458851093330, guid: 1478d6df2c914634a8d181292686311e, type: 3}
   firePoint: {fileID: 1248993391813291100}
-  explosionPrefab: {fileID: 7384933166859262790, guid: c7c71252e28f2604fb81cff80d4d008f, type: 3}
+  explosionPrefab: {fileID: 0}
   Reliquia: {fileID: 1789948251061980202, guid: beb3ea0facc54d04b968df922c3cb9c1, type: 3}
   homingBulletPrefab: {fileID: 283899458851093330, guid: 2c8a5d5cf1f73e04da97d982f473e49f, type: 3}
   lazerPrefab: {fileID: 5477883342126219679, guid: 8ea054786d661604984daa76f2eddc13, type: 3}
