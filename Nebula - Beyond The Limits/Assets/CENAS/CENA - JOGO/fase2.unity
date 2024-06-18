@@ -1336,7 +1336,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pointsText: {fileID: 392031240}
-  player: {fileID: 0}
+  player: {fileID: 7561386588379343564}
   pontos: 0
   levelLoader: {fileID: 830093138}
 --- !u!1 &321801504
@@ -7704,7 +7704,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4b40f003a72cbe46b331ee742176077, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectToSpawn: {fileID: 2724899999445496636, guid: b78d490b996d3ec42867647f5fcb3c43, type: 3}
+  objectToSpawn: {fileID: 8460923451166604434, guid: 826c713e712a6264099ed69394e37c48, type: 3}
   tempoTotal: 90
   tempoSpawn: 30
   explosionPrefab: {fileID: 9126560832837868632}
@@ -9087,7 +9087,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: fase2
+          m_StringArgument: fase3
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1897235912
