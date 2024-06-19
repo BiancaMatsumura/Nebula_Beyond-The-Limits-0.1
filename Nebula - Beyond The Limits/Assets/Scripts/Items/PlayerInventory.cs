@@ -12,8 +12,14 @@ public class playerInventory : MonoBehaviour
 
     public UnityEvent<playerInventory> OnGemCollected;
     
-    void Update()
+    void Start()
     {
+
+        NumberOfGems = PlayerPrefs.GetInt("ReliquiaN");
+    }
+    void Update()
+    {   
+    
         if(NumberOfGems != 0)
         {
         PlayerPrefs.SetInt("ReliquiaN",NumberOfGems);
@@ -22,8 +28,9 @@ public class playerInventory : MonoBehaviour
     }
     public void GemCollected() 
     {      
-        NumberOfGems++;
         OnGemCollected.Invoke(this);
+        NumberOfGems++;
+        
         
         
     }
