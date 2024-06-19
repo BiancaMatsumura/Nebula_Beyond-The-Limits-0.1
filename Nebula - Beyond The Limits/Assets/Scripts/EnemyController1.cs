@@ -1,4 +1,4 @@
-using System;
+ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -10,6 +10,8 @@ public class EnemyController1 : MonoBehaviour
     public int vida = 10;
     public float speed = 5f;
     public int dano = 10;
+    private int bulletTD;
+    private int laserTD;
 
     [SerializeField] public GameObject explosion;
 
@@ -19,7 +21,13 @@ public class EnemyController1 : MonoBehaviour
     public GameObject GemModel;
 
     void Start()
-    {
+    {   
+        if(PlayerPrefs.HasKey("bulletDamage") || PlayerPrefs.HasKey("laserDamage"))
+        {
+            bulletTD = PlayerPrefs.GetInt("bulletDamage");
+            laserTD = PlayerPrefs.GetInt("laserDamage");
+
+        }
         
         GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
         if (playerObject != null)
@@ -63,13 +71,13 @@ public class EnemyController1 : MonoBehaviour
                 DanoNave.Play();
             }
 
-            TakeDamage(10);
+            TakeDamage(bulletTD);
         }
 
         if (other.gameObject.CompareTag("Lazer"))
         {
             
-            TakeDamage(300);
+            TakeDamage(laserTD);
         }
 
 

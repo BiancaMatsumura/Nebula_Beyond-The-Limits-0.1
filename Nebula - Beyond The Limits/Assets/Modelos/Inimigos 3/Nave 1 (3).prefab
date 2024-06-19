@@ -67,18 +67,18 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: b91fd1aca75b5414f95e1fe1d1d4cec6, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 9ac4b601b898d174ca292efab861efae, type: 2}
+      objectReference: {fileID: 2100000, guid: fb80c10333a03664cabda94931d4b941, type: 2}
     - target: {fileID: -7511558181221131132, guid: b91fd1aca75b5414f95e1fe1d1d4cec6, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: d367493a885e595468e88cd494038bea, type: 2}
+      objectReference: {fileID: 2100000, guid: 9bdf2a492c08af046a422c1b7cc58684, type: 2}
     - target: {fileID: -7511558181221131132, guid: b91fd1aca75b5414f95e1fe1d1d4cec6, type: 3}
       propertyPath: m_Materials.Array.data[2]
       value: 
-      objectReference: {fileID: 2100000, guid: 8104ca7cafbb93e48b4e6aba355b10ec, type: 2}
+      objectReference: {fileID: 2100000, guid: 3eba9972c6784374389e32c2614c5a58, type: 2}
     - target: {fileID: 919132149155446097, guid: b91fd1aca75b5414f95e1fe1d1d4cec6, type: 3}
       propertyPath: m_Name
-      value: Nave 1 (2)
+      value: Nave 1 (3)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: b91fd1aca75b5414f95e1fe1d1d4cec6, type: 3}
       propertyPath: m_TagString
@@ -115,8 +115,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b44f3a90339c377488172101badc0a94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vida: 60
-  speed: 4.64
+  vida: 50
+  speed: 5.28
   dano: 16
   explosion: {fileID: 0}
   DanoNave: {fileID: 0}

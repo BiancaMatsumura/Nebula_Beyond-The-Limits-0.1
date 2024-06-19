@@ -98,18 +98,18 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 2c9cdca2ac56a1b4aa1ea29e0aca86e3, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: d367493a885e595468e88cd494038bea, type: 2}
+      objectReference: {fileID: 2100000, guid: 9bdf2a492c08af046a422c1b7cc58684, type: 2}
     - target: {fileID: -7511558181221131132, guid: 2c9cdca2ac56a1b4aa1ea29e0aca86e3, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: 9ac4b601b898d174ca292efab861efae, type: 2}
+      objectReference: {fileID: 2100000, guid: fb80c10333a03664cabda94931d4b941, type: 2}
     - target: {fileID: -7511558181221131132, guid: 2c9cdca2ac56a1b4aa1ea29e0aca86e3, type: 3}
       propertyPath: m_Materials.Array.data[2]
       value: 
-      objectReference: {fileID: 2100000, guid: 8104ca7cafbb93e48b4e6aba355b10ec, type: 2}
+      objectReference: {fileID: 2100000, guid: 3eba9972c6784374389e32c2614c5a58, type: 2}
     - target: {fileID: 919132149155446097, guid: 2c9cdca2ac56a1b4aa1ea29e0aca86e3, type: 3}
       propertyPath: m_Name
-      value: Nave 02 (2)
+      value: Nave 02 (3)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 2c9cdca2ac56a1b4aa1ea29e0aca86e3, type: 3}
       propertyPath: m_TagString
@@ -151,13 +151,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSource: {fileID: 0}
   explosion: {fileID: 0}
-  vida: 70
-  speed: 3.08
+  vida: 75
+  speed: 3.01
   bulletPrefab: {fileID: 283899458851093330, guid: e70f1c59139ddf34ea7d0e172897be96, type: 3}
   firePoint: {fileID: 8410399509454878274}
   GemModel: {fileID: 6197415147134778754, guid: 5918376a8fd5c09429640d4995901c6b, type: 3}
   explosionPrefab: {fileID: 0}
-  fireRate: 2.5
+  fireRate: 0.83
   audioPlayer: {fileID: 0}
   audioPlayer2: {fileID: 0}
   player: {fileID: 0}

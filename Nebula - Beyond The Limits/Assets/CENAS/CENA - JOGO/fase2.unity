@@ -614,6 +614,7 @@ GameObject:
   - component: {fileID: 165299988}
   - component: {fileID: 165299989}
   - component: {fileID: 165299990}
+  - component: {fileID: 165299991}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -705,6 +706,20 @@ MonoBehaviour:
   tempoAparecerPainel: 0
   warningPanel: {fileID: 696578933}
   somAlarme: {fileID: 2117030437}
+--- !u!114 &165299991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 165299985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 909b493ac56eec3449714e12cca052bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nebulaBalaDano: 15
+  nebulaLazerDano: 25
 --- !u!1 &170785209
 GameObject:
   m_ObjectHideFlags: 0
@@ -7627,14 +7642,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 7
-  interval: 4
+  interval: 2
   explosion: {fileID: 9126560832837868632}
   ObjectToSpawn: {fileID: 3668626275776234655, guid: 96d01a325fe488448a2b97ae7837747b, type: 3}
   player: {fileID: 7561386588379343564}
   audioSource: {fileID: 432780224}
   audioPlayer: {fileID: 0}
   audioPlayer2: {fileID: 964702336}
-  MaxEnemies: 10
+  MaxEnemies: 30
 --- !u!4 &1670008613
 Transform:
   m_ObjectHideFlags: 0
@@ -7663,14 +7678,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 7
-  interval: 6
+  interval: 2
   explosion: {fileID: 9126560832837868632}
   enemyPrefab: {fileID: 6519313319001120943, guid: cecc08afc3cf8b14d9b10e17b5f4ed50, type: 3}
   player: {fileID: 7561386588379343564}
   audioSource: {fileID: 432780224}
   audioPlayer: {fileID: 0}
   audioPlayer2: {fileID: 964702336}
-  maxEnemies: 8
+  maxEnemies: 33
 --- !u!114 &1670008616
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7684,7 +7699,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 7
-  interval: 7
+  interval: 5
   explosion: {fileID: 9126560832837868632}
   enemyPrefab: {fileID: 4412860443916181234, guid: 44bd7415253917b4486f1ae1bdf7f305, type: 3}
   laserPrefab: {fileID: 5477883342126219679, guid: 534048a727307f04c97423d925eaa345, type: 3}
@@ -7692,7 +7707,7 @@ MonoBehaviour:
   audioSource: {fileID: 432780224}
   audioPlayer: {fileID: 964702336}
   audioPlayer2: {fileID: 0}
-  maxEnemies2: 7
+  maxEnemies2: 32
 --- !u!114 &1670008617
 MonoBehaviour:
   m_ObjectHideFlags: 0

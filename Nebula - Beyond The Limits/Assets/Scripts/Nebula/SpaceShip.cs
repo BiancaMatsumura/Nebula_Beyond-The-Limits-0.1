@@ -167,7 +167,7 @@ public class SpaceShip : MonoBehaviour
 
     public void TakeDamage(int damageAmount)
     {   
-        if(escudo == 0)
+        if(escudo <= 0)
         {
             vida -= damageAmount;
              DanoNave.Play();

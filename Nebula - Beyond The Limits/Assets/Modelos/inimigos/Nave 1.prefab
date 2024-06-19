@@ -103,9 +103,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b44f3a90339c377488172101badc0a94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vida: 50
-  speed: 3.5
-  damageAmount: 20
+  vida: 30
+  speed: 3.56
+  dano: 10
   explosion: {fileID: 0}
   DanoNave: {fileID: 0}
   GemModel: {fileID: 6197415147134778754, guid: 5918376a8fd5c09429640d4995901c6b, type: 3}

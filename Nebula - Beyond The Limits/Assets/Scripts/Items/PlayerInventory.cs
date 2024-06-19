@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public class playerInventory : MonoBehaviour 
 {
-    public int NumberOfGems  { get; private set; } = 0;
+    public int NumberOfGems  { get; private set; }
     public gameOverScreen gameOverScreen;
 
     public pontos pontos;

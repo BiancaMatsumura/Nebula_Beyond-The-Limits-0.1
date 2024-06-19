@@ -95,9 +95,21 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: cb3492299e9a3e54c9ccfc562e8da0d5, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: fb80c10333a03664cabda94931d4b941, type: 2}
+    - target: {fileID: -7511558181221131132, guid: cb3492299e9a3e54c9ccfc562e8da0d5, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3eba9972c6784374389e32c2614c5a58, type: 2}
+    - target: {fileID: -7511558181221131132, guid: cb3492299e9a3e54c9ccfc562e8da0d5, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9bdf2a492c08af046a422c1b7cc58684, type: 2}
     - target: {fileID: 919132149155446097, guid: cb3492299e9a3e54c9ccfc562e8da0d5, type: 3}
       propertyPath: m_Name
-      value: Nave 03
+      value: Nave 03 (3)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: cb3492299e9a3e54c9ccfc562e8da0d5, type: 3}
       propertyPath: m_TagString
@@ -195,8 +207,8 @@ MonoBehaviour:
   Laser: {fileID: 0}
   ShieldModel: {fileID: 7106734306680178686, guid: cb51a9790fac6c54c9304535e3ffd385, type: 3}
   spaceShip: {fileID: 0}
-  vida: 75
+  vida: 50
   moveSpeed: 5
-  moveDistance: 10
-  laserPrefab: {fileID: 5477883342126219679, guid: 534048a727307f04c97423d925eaa345, type: 3}
+  moveDistance: 5
+  laserPrefab: {fileID: 5477883342126219679, guid: e12bde205660acf429d4c3219a489f2d, type: 3}
   laserPoint: {fileID: 9093770656684019509}

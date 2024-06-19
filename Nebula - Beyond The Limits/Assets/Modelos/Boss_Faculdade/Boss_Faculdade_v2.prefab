@@ -150,7 +150,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 283899458851093330, guid: 1478d6df2c914634a8d181292686311e, type: 3}
   firePoint: {fileID: 1248993391813291100}
   explosionPrefab: {fileID: 0}
-  Reliquia: {fileID: 1789948251061980202, guid: beb3ea0facc54d04b968df922c3cb9c1, type: 3}
+  Reliquia: {fileID: 2484008416113588165, guid: ba283caab8ed456478dbe6a58ca7146f, type: 3}
   homingBulletPrefab: {fileID: 283899458851093330, guid: 2c8a5d5cf1f73e04da97d982f473e49f, type: 3}
   lazerPrefab: {fileID: 5477883342126219679, guid: 8ea054786d661604984daa76f2eddc13, type: 3}
   levelUpSom: {fileID: 0}

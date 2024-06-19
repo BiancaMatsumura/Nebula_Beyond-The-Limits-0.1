@@ -27,10 +27,12 @@ public class DialogController : MonoBehaviour
     };
 
     private void Start()
-    {        
-        TriggerDialog(0); 
-       
-       
+    {  
+        if(ReliquiaTutorial < 2)
+        {
+            TriggerDialog(0);  
+        }
+
     }
 
     public void TriggerDialog(int dialogueIndex)
@@ -39,11 +41,8 @@ public class DialogController : MonoBehaviour
         {
             string selectedDialogue = allDialogues[dialogueIndex];
             StartCoroutine(TypeText(selectedDialogue));
-
-            if(dialogueIndex < 2)
-            {
-                shownDialogues.Add(dialogueIndex); 
-            }
+            shownDialogues.Add(dialogueIndex); 
+            
         }
     
     }

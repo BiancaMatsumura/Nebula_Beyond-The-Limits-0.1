@@ -10,7 +10,8 @@ public class EnemyController : MonoBehaviour
     public int vida = 10;
 
     public float speed = 5f;
-
+    private int bulletTD;
+    private int laserTD;
     public GameObject bulletPrefab;
     public Transform firePoint;
     public GameObject GemModel;
@@ -24,6 +25,15 @@ public class EnemyController : MonoBehaviour
 
     public SpaceShip player;
 
+    void Start()
+    {
+        if(PlayerPrefs.HasKey("bulletDamage") || PlayerPrefs.HasKey("laserDamage"))
+        {
+            bulletTD = PlayerPrefs.GetInt("bulletDamage");
+            laserTD = PlayerPrefs.GetInt("laserDamage");
+
+        }
+    }
     void Update()
     {
 
@@ -54,7 +64,7 @@ public class EnemyController : MonoBehaviour
         if (other.gameObject.CompareTag("PlayerAttack"))
         {
             audioPlayer2.Play();
-            TakeDamage(10);
+            TakeDamage(bulletTD);
 
         }
         if (other.gameObject.CompareTag("Player"))
@@ -62,7 +72,7 @@ public class EnemyController : MonoBehaviour
             Instantiate(explosion, transform.position, Quaternion.identity);
             Destroy(gameObject);
             DropGem();
-            player.TakeDamage(10);
+            player.TakeDamage(bulletTD);
 
             if (FindObjectOfType<SpaceShip>() != null)
             {
@@ -74,7 +84,7 @@ public class EnemyController : MonoBehaviour
         if (other.gameObject.CompareTag("Lazer"))
         {
              audioPlayer2.Play();
-            TakeDamage(300);
+            TakeDamage(laserTD);
         }
     
     

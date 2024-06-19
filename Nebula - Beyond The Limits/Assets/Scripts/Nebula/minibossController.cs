@@ -24,12 +24,21 @@ public class minibossController : MonoBehaviour
     private int Direction = -1;
     private float fireChose = 1;
     private float switchTime = 5f;
+    private int laserTD;
+    private int bulletTD;
     private float timeSinceLastSwitch = 0f;
     public SpaceShip player;
     public GameObject sprEnemy;
+    private int bossmorreu;
 
     void Start()
     {
+         if(PlayerPrefs.HasKey("bulletDamage") || PlayerPrefs.HasKey("laserDamage"))
+        {
+            bulletTD = PlayerPrefs.GetInt("bulletDamage");
+            laserTD = PlayerPrefs.GetInt("laserDamage");
+
+        }
         player = FindObjectOfType<SpaceShip>();
     }
 
@@ -109,9 +118,13 @@ public class minibossController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("PlayerAttack"))
         {
-            TakeDamage(10);
+            TakeDamage(bulletTD);
         }
-    }
+        if (other.gameObject.CompareTag("Lazer"))
+        {
+            TakeDamage(laserTD);
+        }
+    }   
 
     public void TakeDamage(int damageAmount)
     {
@@ -121,12 +134,22 @@ public class minibossController : MonoBehaviour
         {
             Instantiate(explosionPrefab, transform.position, Quaternion.identity);
             Destroy(gameObject);
-            DropReliquia();
+            DropReliquia(); 
+            bossmorreu++;
+            PlayerPrefs.SetInt("bossmorto",bossmorreu);
+            PlayerPrefs.Save();
+            
 
             if (player != null)
             {
                 player.EnemyDestroyed();
             }
+        }
+        else
+        {   
+             bossmorreu--;
+            PlayerPrefs.SetInt("bossmorto",0);
+            PlayerPrefs.Save();
         }
     }
 

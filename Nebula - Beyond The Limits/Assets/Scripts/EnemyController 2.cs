@@ -11,6 +11,8 @@ public class EnemyController2 : MonoBehaviour
     public SpaceShip spaceShip;
 
     public int vida = 50;
+    private int bulletTD;
+    private int laserTD;
 
     [Header("Movement")]
     public float moveSpeed = 3f;
@@ -39,6 +41,12 @@ public class EnemyController2 : MonoBehaviour
 
     void Start()
     {        
+        if(PlayerPrefs.HasKey("bulletDamage") || PlayerPrefs.HasKey("laserDamage"))
+        {
+            bulletTD = PlayerPrefs.GetInt("bulletDamage");
+            laserTD = PlayerPrefs.GetInt("laserDamage");
+
+        }
         StartCoroutine(MoveEnemy());
         
         GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
@@ -101,14 +109,14 @@ public class EnemyController2 : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Lazer"))
             {
-                TakeDamage(300);
-                vida=0;
+                TakeDamage(laserTD);
+              
             }
         
         if (other.gameObject.CompareTag("PlayerAttack"))
         {
             DanoNave.Play();
-            TakeDamage(10);
+            TakeDamage(bulletTD);
 
         }
 
