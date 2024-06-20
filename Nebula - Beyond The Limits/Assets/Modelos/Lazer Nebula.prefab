@@ -92,7 +92,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destructionDelay: 1
-  dano: 5
+  dano: 50
   player: {fileID: 0}
 --- !u!1 &7507011384734869067
 GameObject:

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2118,7 +2118,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: fase2
+          m_StringArgument: fase3
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &450831812
@@ -5109,7 +5109,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: fase1
+          m_StringArgument: fase2
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1113949141
@@ -20606,6 +20606,8 @@ MonoBehaviour:
   escudo: 50
   movementSpeed: 10
   pontos: 0
+  cooldownTime: 1
+  sliderCooldown: {fileID: 0}
   enemiesDestroyed: 0
   spreadAngle: 15
   bulletPrefab: {fileID: 5361266936097680113, guid: afc0826bc3e412346a0adb033b355a8c, type: 3}

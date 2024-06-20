@@ -13,7 +13,9 @@ public class SpaceShip : MonoBehaviour
     public int escudo = 20;
     public float movementSpeed = 1f;
     public int pontos = 0;
-    
+    public float cooldownTime = 1.0f;
+    public Slider sliderCooldown;
+    private float nextFireTime = 1.0f;
  
     public int enemiesDestroyed = 0;
     public float spreadAngle = 15f;
@@ -68,14 +70,14 @@ public class SpaceShip : MonoBehaviour
         
         int cenaAtiva = SceneManager.GetActiveScene().buildIndex;
          if (cenaAtiva <=3)
-        {
+         {
             PlayerPrefs.DeleteKey("ReliquiaN");
-        }
+         }
 
          if(PlayerPrefs.HasKey("ReliquiaN"))
-        {
+         {
             numeroReliquia = PlayerPrefs.GetInt("ReliquiaN");       
-        }
+         }
         
         
     }
@@ -84,7 +86,7 @@ public class SpaceShip : MonoBehaviour
     void Update()
     {
         Inputs();
-
+        
         if (!PauseMenuPanel.activeSelf && !optionPanel.activeSelf && !victoryPanel.activeSelf && Input.GetButtonDown("Fire1"))
         {
             Laser.Play();
@@ -94,22 +96,35 @@ public class SpaceShip : MonoBehaviour
             
          
          if (!PauseMenuPanel.activeSelf && !optionPanel.activeSelf && !victoryPanel.activeSelf && Input.GetButtonDown("Fire2"))
-        {   
-            if  (numeroReliquia == 2)
+         {   
+            if  (numeroReliquia == 2 && Time.time >= nextFireTime)
             {
+                
+                nextFireTime = Time.time + cooldownTime;
+                sliderCooldown.maxValue = cooldownTime;
+                sliderCooldown.value = cooldownTime;
                 Laser.Play();
                 FeixeLAZER();
             }
           
-        }
+         }
 
         pointsText.text = pontos.ToString() + " POINTS";
-        
-        // Puxa a variavel do playerInventory (que foi salva)  
-         if(PlayerPrefs.HasKey("ReliquiaN"))
+
+        if (Time.time < nextFireTime)
         {
-            numeroReliquia = PlayerPrefs.GetInt("ReliquiaN");
+            sliderCooldown.value = nextFireTime - Time.time;
         }
+        else
+        {
+            sliderCooldown.value = 0;
+        }
+
+        // Puxa a variavel do playerInventory (que foi salva)  
+        if (PlayerPrefs.HasKey("ReliquiaN"))
+         {
+            numeroReliquia = PlayerPrefs.GetInt("ReliquiaN");
+         }
     
     }
     void FixedUpdate()

@@ -20,19 +20,19 @@ public class playerInventory : MonoBehaviour
     void Update()
     {   
     
-        if(NumberOfGems != 0)
-        {
-        PlayerPrefs.SetInt("ReliquiaN",NumberOfGems);
-        PlayerPrefs.Save();
-        }
+      
     }
     public void GemCollected() 
     {      
         OnGemCollected.Invoke(this);
         NumberOfGems++;
-        
-        
-        
+        if (NumberOfGems != 0)
+        {
+            PlayerPrefs.SetInt("ReliquiaN", NumberOfGems);
+            PlayerPrefs.Save();
+        }
+
+
     }
 
         public void GameOver()

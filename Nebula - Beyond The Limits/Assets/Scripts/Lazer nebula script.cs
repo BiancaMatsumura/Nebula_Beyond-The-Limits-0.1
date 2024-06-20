@@ -6,12 +6,15 @@ using UnityEditor;
 using UnityEngine;
 
 public class Lazernebulascript : MonoBehaviour
-{public float destructionDelay = 1.0f;
-    public int dano = 5;
+{
+    public float destructionDelay = 1.0f;
+    public int dano = 50;
     public SpaceShip player;
     private Animator NebulaLazerAnim;
     private float speed =100f;
-         private void Start()
+
+
+    private void Start()
     {
 
 
