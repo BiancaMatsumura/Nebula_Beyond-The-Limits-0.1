@@ -7641,14 +7641,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 7
-  interval: 2
+  interval: 3
   explosion: {fileID: 9126560832837868632}
   ObjectToSpawn: {fileID: 3668626275776234655, guid: 3d529b680b353fb4b85b59b826a0a16b, type: 3}
   player: {fileID: 7561386588379343564}
   audioSource: {fileID: 432780224}
   audioPlayer: {fileID: 0}
   audioPlayer2: {fileID: 964702336}
-  MaxEnemies: 20
+  MaxEnemies: 13
 --- !u!4 &1670008613
 Transform:
   m_ObjectHideFlags: 0
@@ -7677,14 +7677,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 7
-  interval: 1
+  interval: 5
   explosion: {fileID: 9126560832837868632}
   enemyPrefab: {fileID: 6519313319001120943, guid: e9366495bb1eed84d8ff7451404d91cd, type: 3}
   player: {fileID: 7561386588379343564}
   audioSource: {fileID: 432780224}
   audioPlayer: {fileID: 0}
   audioPlayer2: {fileID: 964702336}
-  maxEnemies: 34
+  maxEnemies: 20
 --- !u!114 &1670008616
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20605,6 +20605,8 @@ MonoBehaviour:
   escudo: 50
   movementSpeed: 10
   pontos: 0
+  cooldownTime: 1
+  sliderCooldown: {fileID: 0}
   enemiesDestroyed: 0
   spreadAngle: 15
   bulletPrefab: {fileID: 5361266936097680113, guid: afc0826bc3e412346a0adb033b355a8c, type: 3}

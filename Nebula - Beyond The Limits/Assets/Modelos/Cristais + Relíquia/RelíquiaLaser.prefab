@@ -123,15 +123,15 @@ MonoBehaviour:
   isRotating: 1
   isFloating: 1
   isScaling: 0
-  rotationAngle: {x: 0, y: 0, z: 0}
-  rotationSpeed: 0
-  floatSpeed: 0
+  rotationAngle: {x: 0, y: 0, z: 90}
+  rotationSpeed: 1.49
+  floatSpeed: 0.04
   floatRate: 0
-  speed: 0.5
-  startScale: {x: 0, y: 0, z: 0}
-  endScale: {x: 0, y: 0, z: 0}
-  scaleSpeed: 0
-  scaleRate: 0
+  speed: 20
+  startScale: {x: 1, y: 1, z: 1}
+  endScale: {x: 1, y: 1, z: 1}
+  scaleSpeed: 1
+  scaleRate: 0.5
 --- !u!114 &7324111584305369576
 MonoBehaviour:
   m_ObjectHideFlags: 0
