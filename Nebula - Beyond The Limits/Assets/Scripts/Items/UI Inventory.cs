@@ -18,10 +18,7 @@ public class UIInventory : MonoBehaviour
 
    void Update()
     {       
-        if (PlayerPrefs.HasKey("ReliquiaN"))
-        {
-            numeroReliquia = PlayerPrefs.GetInt("ReliquiaN");
-        }
+        numeroReliquia = ReliquiaData.numeroDReliquia;
         GemCounter.text = numeroReliquia.ToString();
         
     }

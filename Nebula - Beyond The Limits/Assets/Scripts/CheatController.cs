@@ -37,9 +37,7 @@ public class CheatController : MonoBehaviour
         }
         if(Input.GetKeyDown(KeyCode.F4))
         {   
-            GemCheat++;
-             PlayerPrefs.SetInt("ReliquiaN",GemCheat);
-             PlayerPrefs.Save();
+            ReliquiaData.numeroDReliquia++;  
         }
     }
 }

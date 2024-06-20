@@ -116,6 +116,8 @@ public class minibossController : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+        if(vida>0)
+        {
         if (other.gameObject.CompareTag("PlayerAttack"))
         {
             TakeDamage(bulletTD);
@@ -124,20 +126,21 @@ public class minibossController : MonoBehaviour
         {
             TakeDamage(laserTD);
         }
+        }
     }   
 
     public void TakeDamage(int damageAmount)
     {
-        vida -= damageAmount;
+         
+         vida -= damageAmount;
 
         if (vida <= 0)
         {
             Instantiate(explosionPrefab, transform.position, Quaternion.identity);
             Destroy(gameObject);
-            DropReliquia(); 
-            bossmorreu++;
-            PlayerPrefs.SetInt("bossmorto",bossmorreu);
-            PlayerPrefs.Save();
+            DropReliquia();
+            
+            
             
 
             if (player != null)
@@ -145,16 +148,12 @@ public class minibossController : MonoBehaviour
                 player.EnemyDestroyed();
             }
         }
-        else
-        {   
-             bossmorreu--;
-            PlayerPrefs.SetInt("bossmorto",0);
-            PlayerPrefs.Save();
-        }
+
     }
 
     void DropReliquia()
-    {
+    {   
+        Debug.Log("RELIQUIA A SOLTA");
         Vector3 position = transform.position;
         GameObject Reliq = Instantiate(Reliquia, position, Quaternion.identity);
         Reliq.GetComponent<ReliquiaController>().dialogController = dialogController;

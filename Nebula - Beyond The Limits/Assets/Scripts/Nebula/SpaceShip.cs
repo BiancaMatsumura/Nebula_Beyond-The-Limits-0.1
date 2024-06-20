@@ -69,9 +69,10 @@ public class SpaceShip : MonoBehaviour
         pontos = 000;  
         
         int cenaAtiva = SceneManager.GetActiveScene().buildIndex;
-         if (cenaAtiva <=3)
+         if (cenaAtiva <= 2)
          {
-            PlayerPrefs.DeleteKey("ReliquiaN");
+            ReliquiaData.numeroDReliquia = 0;
+            
          }
 
          if(PlayerPrefs.HasKey("ReliquiaN"))
@@ -97,7 +98,7 @@ public class SpaceShip : MonoBehaviour
          
          if (!PauseMenuPanel.activeSelf && !optionPanel.activeSelf && !victoryPanel.activeSelf && Input.GetButtonDown("Fire2"))
          {   
-            if  (numeroReliquia == 2 && Time.time >= nextFireTime)
+            if  (ReliquiaData.numeroDReliquia == 2 && Time.time >= nextFireTime)
             {
                 
                 nextFireTime = Time.time + cooldownTime;
@@ -120,11 +121,7 @@ public class SpaceShip : MonoBehaviour
             sliderCooldown.value = 0;
         }
 
-        // Puxa a variavel do playerInventory (que foi salva)  
-        if (PlayerPrefs.HasKey("ReliquiaN"))
-         {
-            numeroReliquia = PlayerPrefs.GetInt("ReliquiaN");
-         }
+       
     
     }
     void FixedUpdate()
@@ -211,9 +208,6 @@ public class SpaceShip : MonoBehaviour
         {
             gameOverSom.Play();
             gameOverPanel.SetActive(true);
-            //apaga a informação da key Reliquia
-            PlayerPrefs.DeleteKey("ReliquiaN");
-
             
             Time.timeScale = 0f;
         }
@@ -226,7 +220,7 @@ public class SpaceShip : MonoBehaviour
     {
 
 
-        if (numeroReliquia >= 1) 
+        if (ReliquiaData.numeroDReliquia >= 1) 
         {
             ShootTripleTriangle();
         }

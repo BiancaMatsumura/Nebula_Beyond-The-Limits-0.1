@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class playerInventory : MonoBehaviour 
 {
@@ -13,11 +15,11 @@ public class playerInventory : MonoBehaviour
     public UnityEvent<playerInventory> OnGemCollected;
     
     void Start()
-    {
-
-        NumberOfGems = PlayerPrefs.GetInt("ReliquiaN");
+    {      
+       
+        
     }
-    void Update()
+    void FixedUpdate()
     {   
     
       
@@ -25,13 +27,7 @@ public class playerInventory : MonoBehaviour
     public void GemCollected() 
     {      
         OnGemCollected.Invoke(this);
-        NumberOfGems++;
-        if (NumberOfGems != 0)
-        {
-            PlayerPrefs.SetInt("ReliquiaN", NumberOfGems);
-            PlayerPrefs.Save();
-        }
-
+        ReliquiaData.numeroDReliquia += 1; 
 
     }
 

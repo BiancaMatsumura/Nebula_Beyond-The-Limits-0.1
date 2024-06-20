@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class UIController : MonoBehaviour
 {
-    [Header("Painéis")]
+    [Header("Painï¿½is")]
     [SerializeField] public GameObject PauseMenuPanel;
     [SerializeField] public GameObject optionPanel;
     public LevelLoader levelLoader;
@@ -60,6 +60,7 @@ public class UIController : MonoBehaviour
     {
         levelLoader.Transition(nomeFase);
         Time.timeScale = 1f;
+       
     }
 
     public void Resume()
