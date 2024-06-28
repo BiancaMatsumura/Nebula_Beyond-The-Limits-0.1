@@ -115,8 +115,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b44f3a90339c377488172101badc0a94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vida: 50
-  speed: 5.28
+  vida: 80
+  speed: 8
   dano: 16
   explosion: {fileID: 0}
   DanoNave: {fileID: 0}

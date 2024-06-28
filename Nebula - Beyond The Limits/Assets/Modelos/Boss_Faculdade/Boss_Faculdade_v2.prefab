@@ -146,7 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e0e96bfa01c9984498f25773b100209, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vida: 800
+  vida: 5000
   bulletPrefab: {fileID: 283899458851093330, guid: 1478d6df2c914634a8d181292686311e, type: 3}
   firePoint: {fileID: 1248993391813291100}
   explosionPrefab: {fileID: 0}

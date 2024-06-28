@@ -719,7 +719,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nebulaBalaDano: 15
-  nebulaLazerDano: 25
+  nebulaLazerDano: 70
 --- !u!1 &170785209
 GameObject:
   m_ObjectHideFlags: 0

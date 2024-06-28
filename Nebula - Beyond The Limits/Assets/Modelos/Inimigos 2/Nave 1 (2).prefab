@@ -116,7 +116,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vida: 60
-  speed: 4.64
+  speed: 6
   dano: 16
   explosion: {fileID: 0}
   DanoNave: {fileID: 0}
