@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: "Assets/CENAS/CENA - CR\xC9DITOS/Final_Cr\xE9ditos.unity"
     guid: 5742c56eeabbaa946a33af97cbdc6263
+  - enabled: 1
+    path: "Assets/CENAS/CENA - CR\xC9DITOS/creditosMenu.unity"
+    guid: f2b371b2c2e6b4f4aa517d46b7f358bb
   m_configObjects: {}
