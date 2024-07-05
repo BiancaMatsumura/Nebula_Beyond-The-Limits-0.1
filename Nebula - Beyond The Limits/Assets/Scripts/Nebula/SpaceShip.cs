@@ -112,13 +112,17 @@ public class SpaceShip : MonoBehaviour
 
         pointsText.text = pontos.ToString() + " POINTS";
 
-        if (Time.time < nextFireTime)
+        if (Time.time < nextFireTime && sliderCooldown != null)
         {
             sliderCooldown.value = nextFireTime - Time.time;
         }
         else
         {
-            sliderCooldown.value = 0;
+            if(sliderCooldown != null)
+            {
+                sliderCooldown.value = 0;
+            }
+            
         }
 
        
