@@ -5323,6 +5323,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Nebula Rhilnner
       objectReference: {fileID: 0}
+    - target: {fileID: 5662849592979941427, guid: 089a007399a4e014d883e8e218d23eac, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6088588677139067550, guid: 089a007399a4e014d883e8e218d23eac, type: 3}
       propertyPath: Laser
       value: 
@@ -20432,7 +20436,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6233773062436672928
 Transform:
   m_ObjectHideFlags: 0
